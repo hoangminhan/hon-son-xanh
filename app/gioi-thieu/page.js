@@ -20,7 +20,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-slate-900/60 z-10" />
           <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center" />
         </div>
-        <div className="container mx-auto px-4 relative z-20 text-center">
+        <div className="container mx-auto px-4 relative z-20 text-center" data-aos="fade-up">
           <p className="text-orange-400 font-bold tracking-[0.2em] uppercase mb-4 drop-shadow-md">Về Chúng Tôi</p>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 drop-shadow-lg leading-tight">
             Đam Mê Khám Phá <br className="hidden md:block" />
@@ -35,7 +35,7 @@ export default function AboutPage() {
       {/* Story Section */}
       <section className="py-20 md:py-32 container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          <div className="lg:w-1/2 relative w-full">
+          <div className="lg:w-1/2 relative w-full" data-aos="fade-right">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
               <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800&auto=format&fit=crop" alt="Câu chuyện Hòn Sơn Xanh" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
@@ -43,7 +43,7 @@ export default function AboutPage() {
             <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 w-32 h-32 md:w-48 md:h-48 bg-orange-100 dark:bg-orange-900/30 rounded-3xl -z-10" />
             <div className="absolute -top-6 -right-6 md:-top-8 md:-right-8 w-32 h-32 md:w-48 md:h-48 bg-slate-100 dark:bg-slate-800 rounded-full -z-10" />
           </div>
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2" data-aos="fade-left">
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
               Câu Chuyện Của <br className="hidden md:block" />
               <span className="text-orange-600 dark:text-orange-500">Hòn Sơn Xanh</span>
@@ -76,28 +76,28 @@ export default function AboutPage() {
       <section className="py-16 bg-orange-50 dark:bg-slate-800/30 transition-colors border-y border-orange-100 dark:border-slate-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x-0 lg:divide-x lg:divide-orange-200 dark:divide-slate-700 text-center">
-            <div className="flex flex-col items-center p-4">
+            <div className="flex flex-col items-center p-4" data-aos="fade-up" data-aos-delay="0">
               <div className="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 shadow-sm">
                 <Award className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-2">5+</h3>
               <p className="text-slate-600 dark:text-slate-400 font-medium">Năm Kinh Nghiệm</p>
             </div>
-            <div className="flex flex-col items-center p-4 lg:pl-8">
+            <div className="flex flex-col items-center p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="100">
               <div className="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 shadow-sm">
                 <Smile className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-2">2,000+</h3>
               <p className="text-slate-600 dark:text-slate-400 font-medium">Khách Hàng Hài Lòng</p>
             </div>
-            <div className="flex flex-col items-center p-4 lg:pl-8">
+            <div className="flex flex-col items-center p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="200">
               <div className="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 shadow-sm">
                 <Users className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-2">100%</h3>
               <p className="text-slate-600 dark:text-slate-400 font-medium">Hướng Dẫn Viên Bản Địa</p>
             </div>
-            <div className="flex flex-col items-center p-4 lg:pl-8">
+            <div className="flex flex-col items-center p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="300">
               <div className="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 shadow-sm">
                 <Map className="w-8 h-8" strokeWidth={1.5} />
               </div>
@@ -110,14 +110,14 @@ export default function AboutPage() {
 
       {/* Core Values Section */}
       <section className="py-20 md:py-32 container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <p className="text-sm font-bold tracking-[0.2em] text-slate-400 mb-4 uppercase">Tại sao chọn chúng tôi</p>
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Giá Trị Cốt Lõi</h2>
           <div className="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300">
+          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
             <div className="w-20 h-20 mx-auto bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center mb-8 rotate-3 group-hover:rotate-6 transition-transform">
               <Heart className="w-10 h-10" strokeWidth={1.5} />
             </div>
@@ -125,7 +125,7 @@ export default function AboutPage() {
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">Phục vụ khách hàng như người thân trong gia đình, chăm lo từng bữa ăn, giấc ngủ để chuyến đi trọn vẹn nhất.</p>
           </div>
           
-          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300">
+          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
             <div className="w-20 h-20 mx-auto bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-2xl flex items-center justify-center mb-8 -rotate-3 group-hover:-rotate-6 transition-transform">
               <Leaf className="w-10 h-10" strokeWidth={1.5} />
             </div>
@@ -133,7 +133,7 @@ export default function AboutPage() {
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">Ưu tiên các hoạt động bảo vệ môi trường, dọn rác bãi biển và hạn chế rác thải nhựa trong mọi hành trình.</p>
           </div>
           
-          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300">
+          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
             <div className="w-20 h-20 mx-auto bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center mb-8 rotate-3 group-hover:rotate-6 transition-transform">
               <Shield className="w-10 h-10" strokeWidth={1.5} />
             </div>

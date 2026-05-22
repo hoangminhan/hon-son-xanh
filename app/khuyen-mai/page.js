@@ -32,7 +32,7 @@ export default function PromotionPage() {
         <div className="absolute top-1/2 left-0 w-64 h-64 bg-orange-500/30 blur-3xl rounded-full -translate-y-1/2 z-10" />
         <div className="absolute top-1/2 right-0 w-64 h-64 bg-teal-500/30 blur-3xl rounded-full -translate-y-1/2 z-10" />
 
-        <div className="container mx-auto px-4 relative z-20 text-center">
+        <div className="container mx-auto px-4 relative z-20 text-center" data-aos="zoom-in" data-aos-duration="1000">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white mb-6">
             <Tag className="w-4 h-4 text-orange-400" />
             <span className="text-sm font-semibold tracking-wider uppercase">Siêu Ưu Đãi 2026</span>
@@ -50,8 +50,8 @@ export default function PromotionPage() {
       {/* Coupon Codes Section */}
       <section className="py-20 container mx-auto px-4 -mt-10 relative z-30">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {coupons.map((coupon) => (
-            <div key={coupon.id} className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300">
+          {coupons.map((coupon, index) => (
+            <div key={coupon.id} className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
               {/* Top part with color */}
               <div className={`bg-gradient-to-r ${coupon.color} p-6 text-white text-center relative`}>
                 <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-white dark:bg-slate-800 rounded-full" />
@@ -82,7 +82,7 @@ export default function PromotionPage() {
       {/* Flash Sale Tours Section */}
       <section className="py-16 md:py-24 bg-white dark:bg-slate-800 transition-colors">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 dark:border-slate-700 pb-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 dark:border-slate-700 pb-6" data-aos="fade-up">
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white">Flash Sale</h2>
@@ -100,8 +100,8 @@ export default function PromotionPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {saleTours.map((tour) => (
-              <div key={tour.id} className="bg-slate-50 dark:bg-slate-900 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all flex flex-col group border border-slate-100 dark:border-slate-700">
+            {saleTours.map((tour, index) => (
+              <div key={tour.id} className="bg-slate-50 dark:bg-slate-900 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all flex flex-col group border border-slate-100 dark:border-slate-700" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="h-60 relative overflow-hidden">
                   <img src={tour.image} alt={tour.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   
@@ -137,7 +137,7 @@ export default function PromotionPage() {
 
       {/* Features/Trust Section below Promos */}
       <section className="py-20 bg-orange-50 dark:bg-slate-900 transition-colors border-t border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="container mx-auto px-4 max-w-5xl" data-aos="zoom-in-up">
           <div className="bg-white dark:bg-slate-800 p-10 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100 dark:border-slate-700 text-center">
             <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-8">Tại Sao Nên Đặt Tour Cùng Hòn Sơn Xanh?</h2>
             

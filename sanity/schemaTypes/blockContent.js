@@ -47,5 +47,8 @@ export const blockContent = {
         }
       ]
     },
+    {
+      type: 'youtube',
+    },
   ],
 };

@@ -20,7 +20,7 @@ export default async function TourPage() {
   return (
     <div className="py-20 bg-slate-50 dark:bg-slate-900 min-h-screen transition-colors">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-slate-800 dark:text-white mb-12 text-center">Các Tour Du Lịch</h1>
+        <h1 className="text-4xl font-bold text-slate-800 dark:text-white mb-12 text-center" data-aos="fade-down">Các Tour Du Lịch</h1>
         
         {tours.length === 0 ? (
           <div className="text-center text-slate-500 dark:text-slate-400 py-12">
@@ -28,8 +28,8 @@ export default async function TourPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tours.map((tour) => (
-              <div key={tour._id} className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all flex flex-col group">
+            {tours.map((tour, index) => (
+              <div key={tour._id} className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all flex flex-col group" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="h-56 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
                   {tour.mainImage && <img src={urlFor(tour.mainImage).width(600).height(400).url()} alt={`Hình ảnh minh họa cho ${tour.title}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
                   {/* Rating */}

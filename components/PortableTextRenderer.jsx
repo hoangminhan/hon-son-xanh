@@ -16,6 +16,30 @@ const components = {
         />
       );
     },
+    youtube: ({ value }) => {
+      const { url } = value;
+      if (!url) return null;
+      
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
+      const id = (match && match[2].length === 11) ? match[2] : null;
+
+      if (!id) {
+        return <div className="p-4 bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-lg text-center my-8">Link video không hợp lệ</div>;
+      }
+
+      return (
+        <div className="relative w-full aspect-video my-8 rounded-2xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-700">
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src={`https://www.youtube.com/embed/${id}`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+      );
+    },
   },
   block: {
     h2: ({ children }) => <h2 className="text-2xl font-bold mt-8 mb-4 text-slate-800">{children}</h2>,

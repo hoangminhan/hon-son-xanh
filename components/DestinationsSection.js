@@ -50,7 +50,7 @@ export default function DestinationsSection({ destinations = [] }) {
         <div className="flex flex-col xl:flex-row items-center xl:items-start gap-12 xl:gap-16">
 
           {/* Left Text Content */}
-          <div className="w-full xl:w-1/3 text-white xl:pt-12">
+          <div className="w-full xl:w-1/3 text-white xl:pt-12" data-aos="fade-up">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-1 uppercase tracking-tight drop-shadow-lg">Popular</h2>
             <div className="bg-orange-500 inline-block px-6 py-1 mb-10 transform -skew-x-12 shadow-lg rounded-lg">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white transform skew-x-12">Destination</h2>
@@ -66,7 +66,7 @@ export default function DestinationsSection({ destinations = [] }) {
           </div>
 
           {/* Right Carousel */}
-          <div className="w-full xl:w-2/3 relative">
+          <div className="w-full xl:w-2/3 relative" data-aos="fade-up" data-aos-delay="200">
             <div
               ref={scrollContainerRef}
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 pt-4 px-2"

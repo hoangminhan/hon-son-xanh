@@ -47,3 +47,6 @@ Chào các Agent! Khi làm việc trên dự án Hòn Sơn Xanh, các bạn bắ
     *   Trước khi hoàn thành turn, đảm bảo lệnh `npm run dev` chạy không có lỗi cảnh báo (warning) hay lỗi biên dịch (compile error).
 *   **Lưu trữ Tài liệu**:
     *   Khi thực hiện các thay đổi lớn hoặc thêm tính năng phức tạp, hãy tạo file `walkthrough.md` trong thư mục artifact để mô tả chi tiết những gì đã thay đổi và kết quả kiểm thử.
+
+*   **Gải thích rõ ràng**:
+    * Khi hỏi để chạy 1 lệnh gì ở terminal thì phải giải thích rõ lý do tại sao phải chạy lệnh đó, và giải thích cặn kẽ ý nghĩa của lệnh đó.

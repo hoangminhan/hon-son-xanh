@@ -57,7 +57,7 @@ export default function WhyChooseUsSection() {
       <div className="container mx-auto px-4 relative z-10">
         
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <p className="text-sm font-bold tracking-[0.2em] text-slate-400 mb-4 uppercase">Hòn Sơn Xanh</p>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-6">
@@ -83,8 +83,10 @@ export default function WhyChooseUsSection() {
               <div 
                 key={index} 
                 className={getCardClasses(index)}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
-                <div className="mb-6 transform hover:scale-110 transition-transform duration-300">
+                <div className="w-24 h-24 mx-auto bg-orange-100/50 dark:bg-orange-500/10 rounded-3xl flex items-center justify-center mb-8 rotate-3 hover:rotate-6 transition-transform shadow-sm">
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-black text-orange-600 dark:text-orange-500 mb-4 uppercase tracking-wide">
