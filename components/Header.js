@@ -76,7 +76,7 @@ export default function Header() {
 
       {/* Full Screen Mobile Menu */}
       <div
-        className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed inset-0 z-[100] transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800">
@@ -104,11 +104,7 @@ export default function Header() {
               <Link href="/lien-he" className={getMobileLinkClasses('/lien-he')} onClick={closeMobileMenu}>Liên hệ</Link>
             </nav>
 
-            {/* Footer Links */}
-            <div className="mt-auto pt-8 flex flex-col space-y-4 pb-8">
-              <Link href="/#" className="text-sm font-medium text-slate-600 dark:text-slate-400" onClick={closeMobileMenu}>Điều khoản dịch vụ</Link>
-              <Link href="/#" className="text-sm font-medium text-slate-600 dark:text-slate-400" onClick={closeMobileMenu}>Chính sách bảo mật</Link>
-            </div>
+        
           </div>
         </div>
       </div>
