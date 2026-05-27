@@ -47,9 +47,9 @@ export default function Header() {
   return (
     <>
       <header className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-40 shadow-sm transition-colors duration-300">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-orange-600" onClick={closeMobileMenu}>
-            <Image src="/logo.png" alt="Logo" width={80} height={80} className="dark:brightness-200 dark:contrast-200 transition-all" />
+        <div className="container mx-auto px-4 h-20 md:h-24 flex items-center justify-between">
+          <Link href="/" className="flex items-center" onClick={closeMobileMenu}>
+            <Image src="/logo.png" alt="Hòn Sơn Xanh" width={300} height={120} className="h-16 md:h-24 w-auto object-contain scale-110 md:scale-125 origin-left dark:brightness-200 dark:contrast-200 transition-all" priority />
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="/" className={getLinkClasses('/')}>Trang chủ</Link>
@@ -83,14 +83,14 @@ export default function Header() {
           <div className="flex flex-col h-full p-6 pt-12">
 
             {/* Header of Mobile Menu */}
-            <div className="relative flex items-center justify-center mb-10">
+            <div className="relative flex items-center justify-center mb-10 mt-4">
               <button
                 onClick={closeMobileMenu}
                 className="absolute left-0 p-2 text-slate-800 dark:text-slate-200"
               >
                 <X className="w-6 h-6" />
               </button>
-              <Image src="/logo.png" alt="Logo" width={100} height={100} className="dark:brightness-200 dark:contrast-200" />
+              <Image src="/logo.png" alt="Hòn Sơn Xanh" width={250} height={100} className="h-20 w-auto object-contain scale-125 dark:brightness-200 dark:contrast-200" />
             </div>
 
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">Menu</h2>
