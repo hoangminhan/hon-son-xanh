@@ -22,6 +22,13 @@ export const post = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'isFeatured',
+      title: 'Bài viết nổi bật (Featured)',
+      type: 'boolean',
+      description: 'Bật tuỳ chọn này để chọn bài viết này làm bài viết nổi bật (to nhất) trên cùng của trang Blog. Nếu chọn nhiều bài, bài mới nhất sẽ hiển thị.',
+      initialValue: false,
+    },
+    {
       name: 'excerpt',
       title: 'Mô tả ngắn',
       type: 'text',

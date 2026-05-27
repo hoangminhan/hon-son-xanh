@@ -55,7 +55,6 @@ export default function Header() {
             <Link href="/" className={getLinkClasses('/')}>Trang chủ</Link>
             <Link href="/gioi-thieu" className={getLinkClasses('/gioi-thieu')}>Giới thiệu</Link>
             <Link href="/tour" className={getLinkClasses('/tour')}>Tours</Link>
-            <Link href="/khuyen-mai" className={getLinkClasses('/khuyen-mai')}>Khuyến mãi</Link>
             <Link href="/bai-viet" className={getLinkClasses('/bai-viet')}>Bài viết</Link>
             <Link href="/lien-he" className={getLinkClasses('/lien-he')}>Liên hệ</Link>
             <div className="border-l border-slate-200 dark:border-slate-700 pl-6 ml-2">
@@ -101,7 +100,6 @@ export default function Header() {
               <Link href="/" className={getMobileLinkClasses('/')} onClick={closeMobileMenu}>Trang chủ</Link>
               <Link href="/gioi-thieu" className={getMobileLinkClasses('/gioi-thieu')} onClick={closeMobileMenu}>Giới thiệu</Link>
               <Link href="/tour" className={getMobileLinkClasses('/tour')} onClick={closeMobileMenu}>Tours</Link>
-              <Link href="/khuyen-mai" className={getMobileLinkClasses('/khuyen-mai')} onClick={closeMobileMenu}>Khuyến mãi</Link>
               <Link href="/bai-viet" className={getMobileLinkClasses('/bai-viet')} onClick={closeMobileMenu}>Blog</Link>
               <Link href="/lien-he" className={getMobileLinkClasses('/lien-he')} onClick={closeMobileMenu}>Liên hệ</Link>
             </nav>

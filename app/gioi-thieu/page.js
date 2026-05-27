@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Shield, Heart, Leaf, Users, Map, Award, Smile } from 'lucide-react';
+import { Shield, Heart, Leaf, Users, Map, Award, Smile, Info } from 'lucide-react';
 
 export const metadata = {
   title: 'Giới Thiệu | Hòn Sơn Xanh',
@@ -14,19 +14,25 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="bg-white dark:bg-slate-900 transition-colors">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      {/* ── Hero Section ── */}
+      <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-slate-900/60 z-10" />
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-orange-950 z-10" />
+          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-20" />
         </div>
-        <div className="container mx-auto px-4 relative z-20 text-center" data-aos="fade-up">
-          <p className="text-orange-400 font-bold tracking-[0.2em] uppercase mb-4 drop-shadow-md">Về Chúng Tôi</p>
-          <h1 className="text-4xl md:text-7xl font-black text-white mb-6 drop-shadow-lg leading-tight">
+        <div className="absolute top-10 right-10 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl z-10 pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-20 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white mb-6 text-sm font-semibold">
+            <Info className="w-4 h-4 text-orange-400" />
+            Về Chúng Tôi
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight">
             Đam Mê Khám Phá <br className="hidden md:block" />
-            <span className="text-orange-500">Biển Đảo</span> Quê Hương
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">Biển Đảo</span> Quê Hương
           </h1>
-          <p className="text-xl text-slate-200 max-w-2xl mx-auto drop-shadow-md leading-relaxed">
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
             Hòn Sơn Xanh không chỉ là một công ty du lịch, chúng tôi là những người con của biển, mang sứ mệnh lan tỏa vẻ đẹp hoang sơ của Hòn Sơn đến mọi người.
           </p>
         </div>
@@ -48,7 +54,7 @@ export default function AboutPage() {
               Câu Chuyện Của <br className="hidden md:block" />
               <span className="text-orange-600 dark:text-orange-500">Hòn Sơn Xanh</span>
             </h2>
-            <div className="prose prose-lg prose-slate dark:prose-invert">
+            <div className="prose md:prose-lg prose-slate dark:prose-invert">
               <p className="text-slate-600 dark:text-slate-300 font-medium">
                 Bắt nguồn từ tình yêu mãnh liệt với thiên nhiên và khát khao bảo tồn vẻ đẹp hoang sơ của quê hương, <strong>Hòn Sơn Xanh</strong> được thành lập bởi những thanh niên sinh ra và lớn lên tại hòn đảo này.
               </p>
@@ -73,31 +79,31 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-orange-50 dark:bg-slate-800/30 transition-colors border-y border-orange-100 dark:border-slate-800">
+      <section className="py-12 md:py-20 bg-orange-50 dark:bg-slate-800/30 transition-colors border-y border-orange-100 dark:border-slate-800">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x-0 lg:divide-x lg:divide-orange-200 dark:divide-slate-700 text-center">
-            <div className="flex flex-col items-center p-4" data-aos="fade-up" data-aos-delay="0">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 divide-x-0 lg:divide-x lg:divide-orange-200 dark:divide-slate-700 text-center">
+            <div className="flex flex-col items-center p-2 md:p-4" data-aos="fade-up" data-aos-delay="0">
               <div className="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 shadow-sm">
                 <Award className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-2">5+</h3>
               <p className="text-slate-600 dark:text-slate-400 font-medium">Năm Kinh Nghiệm</p>
             </div>
-            <div className="flex flex-col items-center p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="100">
+            <div className="flex flex-col items-center p-2 md:p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="100">
               <div className="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 shadow-sm">
                 <Smile className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-2">2,000+</h3>
               <p className="text-slate-600 dark:text-slate-400 font-medium">Khách Hàng Hài Lòng</p>
             </div>
-            <div className="flex flex-col items-center p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="200">
+            <div className="flex flex-col items-center p-2 md:p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="200">
               <div className="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 shadow-sm">
                 <Users className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-2">100%</h3>
               <p className="text-slate-600 dark:text-slate-400 font-medium">Hướng Dẫn Viên Bản Địa</p>
             </div>
-            <div className="flex flex-col items-center p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="300">
+            <div className="flex flex-col items-center p-2 md:p-4 lg:pl-8" data-aos="fade-up" data-aos-delay="300">
               <div className="w-16 h-16 bg-white dark:bg-slate-700 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 shadow-sm">
                 <Map className="w-8 h-8" strokeWidth={1.5} />
               </div>
@@ -116,8 +122,8 @@ export default function AboutPage() {
           <div className="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="bg-white dark:bg-slate-800 p-6 md:p-8 lg:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
             <div className="w-20 h-20 mx-auto bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center mb-8 rotate-3 group-hover:rotate-6 transition-transform">
               <Heart className="w-10 h-10" strokeWidth={1.5} />
             </div>
@@ -125,7 +131,7 @@ export default function AboutPage() {
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">Phục vụ khách hàng như người thân trong gia đình, chăm lo từng bữa ăn, giấc ngủ để chuyến đi trọn vẹn nhất.</p>
           </div>
           
-          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div className="bg-white dark:bg-slate-800 p-6 md:p-8 lg:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
             <div className="w-20 h-20 mx-auto bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-2xl flex items-center justify-center mb-8 -rotate-3 group-hover:-rotate-6 transition-transform">
               <Leaf className="w-10 h-10" strokeWidth={1.5} />
             </div>
@@ -133,7 +139,7 @@ export default function AboutPage() {
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">Ưu tiên các hoạt động bảo vệ môi trường, dọn rác bãi biển và hạn chế rác thải nhựa trong mọi hành trình.</p>
           </div>
           
-          <div className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div className="bg-white dark:bg-slate-800 p-6 md:p-8 lg:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-700 text-center group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
             <div className="w-20 h-20 mx-auto bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center mb-8 rotate-3 group-hover:rotate-6 transition-transform">
               <Shield className="w-10 h-10" strokeWidth={1.5} />
             </div>
@@ -144,7 +150,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-14 md:py-24 bg-orange-600 overflow-hidden">
+      <section className="relative py-16 md:py-24 bg-orange-600 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center mix-blend-multiply opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">Sẵn Sàng Cho Chuyến Đi Đáng Nhớ?</h2>

@@ -60,8 +60,23 @@ export default async function TourDetail({ params }) {
                </div>
                <div>
                  <p className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Giá từ</p>
-                 <p className="font-bold text-orange-600 text-xl">{tour.priceText}</p>
+                 {tour.hasPromotion && tour.promotionPrice ? (
+                   <div>
+                     <p className="text-sm font-semibold text-slate-400 dark:text-slate-500 line-through">{tour.priceText}</p>
+                     <p className="font-bold text-orange-600 text-xl">{tour.promotionPrice}</p>
+                   </div>
+                 ) : (
+                   <p className="font-bold text-orange-600 text-xl">{tour.priceText}</p>
+                 )}
                </div>
+               {tour.hasPromotion && (tour.promotionBadgeLabel || tour.promotionSavingsMessage) && (
+                 <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 rounded-xl border border-red-100 dark:border-red-800/30">
+                   <p className="text-xs text-red-500 dark:text-red-400 uppercase tracking-wider mb-1 font-bold flex items-center gap-1">
+                     <span className="text-base">🔥</span> {tour.promotionBadgeLabel || 'Ưu đãi đặc biệt'}
+                   </p>
+                   {tour.promotionSavingsMessage && <p className="font-bold text-red-600 dark:text-red-400 text-base">{tour.promotionSavingsMessage}</p>}
+                 </div>
+               )}
             </div>
 
             <div className="mb-8">

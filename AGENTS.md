@@ -41,12 +41,20 @@ Chào các Agent! Khi làm việc trên dự án Hòn Sơn Xanh, các bạn bắ
 ## 3. Quy trình làm việc & Best Practices
 *   **Kiểm tra và Tránh Trùng lặp**:
     *   Trước khi viết mới một utility, hook hay component, phải kiểm tra các thư mục `/components` và `/lib` xem đã tồn tại cái tương tự chưa.
+    *   **TUYỆT ĐỐI KHÔNG** copy-paste các khối code UI phức tạp (như Card, List item) ra nhiều nơi. Bắt buộc phải tách thành component dùng chung (reusable component) để đảm bảo đồng bộ khi sửa đổi.
+
 *   **Tối ưu SEO**:
     *   Mọi trang (page) trong thư mục `app/` bắt buộc phải export một `metadata` object hợp lý chứa `title` và `description` tối ưu chuẩn SEO bằng Tiếng Việt.
+
+*   **Tránh Lỗi Cơ Bản của React & Next.js (CRITICAL)**:
+    *   **Lỗi Hydration/Runtime**: BẤT KỲ component nào có chứa event handler (như `onClick`, `onChange`, `onSubmit`), hook (`useState`, `useEffect`, `useRef`) hoặc browser APIs (window, document) đều **bắt buộc** phải có `"use client";` ở dòng đầu tiên. Không được quên điều này dẫn đến lỗi crash app khi Server Component cố gắng render client logic.
+    *   **Lỗi lồng thẻ sai quy cách**: Không bao giờ đặt `<button>` hoặc `<a>` lồng bên trong một thẻ `<Link>` hoặc `<a>` khác. Nếu bắt buộc phải có nút tương tác bên trong thẻ Link, cần dùng thẻ `div` hoặc `span` với thuộc tính `role="button"`, hoặc sử dụng `e.preventDefault()` khéo léo bên trong Client Component.
+
 *   **Giữ Dev Server Hoạt động**:
     *   Trước khi hoàn thành turn, đảm bảo lệnh `npm run dev` chạy không có lỗi cảnh báo (warning) hay lỗi biên dịch (compile error).
+
 *   **Lưu trữ Tài liệu**:
     *   Khi thực hiện các thay đổi lớn hoặc thêm tính năng phức tạp, hãy tạo file `walkthrough.md` trong thư mục artifact để mô tả chi tiết những gì đã thay đổi và kết quả kiểm thử.
 
-*   **Gải thích rõ ràng**:
+*   **Giải thích rõ ràng**:
     * Khi hỏi để chạy 1 lệnh gì ở terminal thì phải giải thích rõ lý do tại sao phải chạy lệnh đó, và giải thích cặn kẽ ý nghĩa của lệnh đó.

@@ -4,6 +4,8 @@ import { urlFor } from '../lib/sanity/image';
 import DestinationsSection from '../components/DestinationsSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import AutoCarousel from '../components/AutoCarousel';
+import TourCard from '../components/TourCard';
+import BlogCard from '../components/BlogCard';
 import { Star, Heart, Compass, ArrowRight } from 'lucide-react';
 import { getCategoryConfig } from '../lib/categoryConfig';
 import { featuredToursQuery, recentPostsQuery, allDestinationsQuery } from '../lib/sanity/queries';
@@ -92,37 +94,7 @@ export default async function Home() {
           </div>
           <AutoCarousel>
             {featuredTours.map((tour, index) => (
-              <div key={tour._id} className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all flex flex-col group" data-aos="fade-up" data-aos-delay={index * 100}>
-                <div className="h-56 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
-                  {tour.mainImage && <img src={urlFor(tour.mainImage).width(600).height(400).url()} alt={`Hình ảnh minh họa cho ${tour.title}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
-                  {/* Rating */}
-                  <div className="absolute top-4 left-4 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
-                    <Star className="w-4 h-4 text-orange-600 fill-orange-600" />
-                    <span className="text-sm font-bold text-slate-800 dark:text-slate-100">4.9</span>
-                  </div>
-                  {/* Favorite */}
-                  <button className="absolute top-4 right-4 w-10 h-10 bg-black/20 hover:bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center transition-colors">
-                    <Heart className="w-5 h-5 text-white" strokeWidth={2.5} />
-                  </button>
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-900 dark:text-indigo-200 text-xs font-semibold rounded-full">{tour.duration || 'Full Day'}</span>
-                    <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-900 dark:text-indigo-200 text-xs font-semibold rounded-full">Khám phá</span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white line-clamp-2">{tour.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-300 mb-6 line-clamp-2 font-medium flex-1">{tour.excerpt}</p>
-                  <div className="mt-auto pt-4 flex flex-col justify-between gap-3 border-t border-slate-100 dark:border-slate-700">
-                    <div className="min-w-0">
-                      <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider">Starting at</p>
-                      <p className="text-2xl font-black text-orange-600 truncate">{tour.priceText}</p>
-                    </div>
-                    <Link href={`/tour/${tour.slug}`} className="w-full shrink-0 text-center px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors shadow-sm text-sm">
-                      Book Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <TourCard key={tour._id} tour={tour} index={index} />
             ))}
           </AutoCarousel>
         </div>
@@ -162,31 +134,13 @@ export default async function Home() {
             <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-4">Cẩm Nang Du Lịch</h2>
           </div>
           <AutoCarousel>
-            {recentPosts.map((post) => (
-              <Link href={`/bai-viet/${post.slug}`} key={post._id} className="group">
-                <div className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full border border-transparent dark:border-slate-700">
-                  <div className="h-48 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
-                    {post.mainImage && <img src={urlFor(post.mainImage).width(600).height(400).url()} alt={`Hình ảnh minh họa cho bài viết ${post.title}`} className="w-full h-full object-cover" />}
-                  </div>
-                  <div className="p-5">
-                    <div className="flex items-center gap-2 flex-wrap mb-2">
-                      {post.category && (() => {
-                        const cat = getCategoryConfig(post.category);
-                        return (
-                          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold ${cat.className}`}>
-                            {cat.emoji} {cat.label}
-                          </span>
-                        );
-                      })()}
-                      <p className="text-xs text-slate-400 dark:text-slate-500">{post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('vi-VN') : ''}</p>
-                    </div>
-                    <h3 className="text-base font-bold mb-2 text-slate-800 dark:text-slate-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400 line-clamp-2 text-sm">{post.excerpt}</p>
-                  </div>
-                </div>
-              </Link>
+            {recentPosts.map((post, index) => (
+              <BlogCard 
+                key={post._id} 
+                post={post} 
+                index={index} 
+                delayConfig={{ type: 'carousel' }} 
+              />
             ))}
           </AutoCarousel>
         </div>

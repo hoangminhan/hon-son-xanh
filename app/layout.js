@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ThemeProvider } from '../components/ThemeProvider';
 import { AOSInit } from '../components/AOSInit';
-import FloatingZalo from '../components/FloatingZalo';
+import FloatingContacts from '../components/FloatingContacts';
 
 const mainFont = Plus_Jakarta_Sans({ subsets: ['latin', 'vietnamese'] });
 
@@ -38,13 +38,13 @@ export default function RootLayout({ children }) {
     <html lang="vi" suppressHydrationWarning>
       <body className={`${mainFont.className} min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900 transition-colors duration-300`}>
         <AOSInit />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Header />
           <main className="flex-grow overflow-x-hidden">
             {children}
           </main>
           <Footer />
-          <FloatingZalo />
+          <FloatingContacts />
         </ThemeProvider>
       </body>
     </html>

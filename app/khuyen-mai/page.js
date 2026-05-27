@@ -178,3 +178,4 @@ export default function PromotionPage() {
     </div>
   );
 }
+
