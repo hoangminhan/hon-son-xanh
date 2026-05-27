@@ -16,7 +16,7 @@ export default function Footer() {
             <li><Link href="/" className="hover:text-orange-400 transition-colors">Trang chủ</Link></li>
             <li><Link href="/gioi-thieu" className="hover:text-orange-400 transition-colors">Giới thiệu</Link></li>
             <li><Link href="/tour" className="hover:text-orange-400 transition-colors">Tours</Link></li>
-            <li><Link href="/blog" className="hover:text-orange-400 transition-colors">Blog</Link></li>
+            <li><Link href="/bai-viet" className="hover:text-orange-400 transition-colors">Bài viết</Link></li>
           </ul>
         </div>
         <div>
@@ -29,7 +29,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="container mx-auto px-4 mt-8 pt-8 border-t border-slate-800 dark:border-slate-900 text-center text-slate-400 text-sm">
+      <div className="container mx-auto px-4 mt-8 pt-8 border-t border-slate-700 dark:border-slate-800 text-center text-slate-400 text-sm">
         &copy; {new Date().getFullYear()} Hòn Sơn Xanh. All rights reserved.
       </div>
     </footer>

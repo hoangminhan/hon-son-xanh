@@ -1,47 +1,47 @@
 export const siteSettings = {
   name: 'siteSettings',
-  title: 'Site Settings',
+  title: 'Cấu Hình Chung',
   type: 'document',
   fields: [
     {
       name: 'siteName',
-      title: 'Site Name',
+      title: 'Tên Website',
       type: 'string',
     },
     {
       name: 'description',
-      title: 'Site Description',
+      title: 'Mô tả Website',
       type: 'text',
       rows: 3,
     },
     {
       name: 'phone',
-      title: 'Phone Number',
+      title: 'Số Điện Thoại (Hotline)',
       type: 'string',
     },
     {
       name: 'zaloUrl',
-      title: 'Zalo URL / Phone',
+      title: 'Link Zalo / SĐT Zalo',
       type: 'string',
     },
     {
       name: 'facebookUrl',
-      title: 'Facebook URL',
+      title: 'Link Facebook (Fanpage)',
       type: 'url',
     },
     {
       name: 'email',
-      title: 'Email',
+      title: 'Địa chỉ Email',
       type: 'string',
     },
     {
       name: 'address',
-      title: 'Address',
+      title: 'Địa chỉ văn phòng',
       type: 'string',
     },
     {
       name: 'logo',
-      title: 'Site Logo',
+      title: 'Logo Website',
       type: 'image',
       options: {
         hotspot: true,

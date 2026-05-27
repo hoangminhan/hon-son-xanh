@@ -18,12 +18,12 @@ async function generateSitemap() {
     '',
     '/gioi-thieu',
     '/tour',
-    '/blog',
+    '/bai-viet',
     '/lien-he',
   ];
 
   const tourPages = tours.map(tour => `/tour/${tour.slug}`);
-  const postPages = posts.map(post => `/blog/${post.slug}`);
+  const postPages = posts.map(post => `/bai-viet/${post.slug}`);
 
   const allPages = [...staticPages, ...tourPages, ...postPages];
 

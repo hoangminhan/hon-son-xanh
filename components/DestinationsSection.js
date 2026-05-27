@@ -38,7 +38,7 @@ export default function DestinationsSection({ destinations = [] }) {
   };
 
   return (
-    <section className="relative py-24 bg-slate-200 overflow-hidden">
+    <section className="relative pt-12 md:pt-24 pb-24 md:pb-36 bg-slate-200 dark:bg-slate-950 transition-colors">
       {/* Background styling for the section */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-slate-950/80 z-10" />
@@ -51,9 +51,9 @@ export default function DestinationsSection({ destinations = [] }) {
 
           {/* Left Text Content */}
           <div className="w-full xl:w-1/3 text-white xl:pt-12" data-aos="fade-up">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-1 uppercase tracking-tight drop-shadow-lg">Popular</h2>
-            <div className="bg-orange-500 inline-block px-6 py-1 mb-10 transform -skew-x-12 shadow-lg rounded-lg">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white transform skew-x-12">Destination</h2>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 uppercase tracking-tight drop-shadow-lg">Địa điểm</h2>
+            <div className="bg-orange-500 inline-block p-6 mb-10 transform -skew-x-12 shadow-lg rounded-lg">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white transform skew-x-12">Nổi tiếng</h2>
             </div>
 
             <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-12 max-w-xl">
@@ -95,17 +95,17 @@ export default function DestinationsSection({ destinations = [] }) {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="absolute -bottom-12 right-8 flex gap-4 xl:justify-center w-full xl:w-auto xl:left-1/2 xl:-translate-x-1/2">
+            <div className="flex gap-4 justify-end xl:justify-center w-full mt-6">
               <button
                 onClick={scrollLeft}
-                className="p-3 md:p-4 bg-orange-500 hover:bg-orange-400 text-white rounded-xl shadow-lg transition-transform hover:scale-105 active:scale-95 z-10"
+                className="p-3 md:p-4 bg-orange-500 hover:bg-orange-400 text-white rounded-xl shadow-lg transition-transform hover:scale-105 active:scale-95 z-10 cursor-pointer"
                 aria-label="Previous"
               >
                 <ChevronLeft className="w-6 h-6" strokeWidth={3} />
               </button>
               <button
                 onClick={scrollRight}
-                className="p-3 md:p-4 bg-orange-500 hover:bg-orange-400 text-white rounded-xl shadow-lg transition-transform hover:scale-105 active:scale-95 z-10"
+                className="p-3 md:p-4 bg-orange-500 hover:bg-orange-400 text-white rounded-xl shadow-lg transition-transform hover:scale-105 active:scale-95 z-10 cursor-pointer"
                 aria-label="Next"
               >
                 <ChevronRight className="w-6 h-6" strokeWidth={3} />

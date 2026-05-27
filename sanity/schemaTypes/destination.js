@@ -1,17 +1,19 @@
+import { validateMainImage } from '../helpers';
+
 export const destination = {
   name: 'destination',
-  title: 'Destination',
+  title: 'Điểm Đến',
   type: 'document',
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Tiêu đề',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'Đường dẫn (Slug)',
       type: 'slug',
       options: {
         source: 'title',
@@ -21,43 +23,44 @@ export const destination = {
     },
     {
       name: 'excerpt',
-      title: 'Excerpt',
+      title: 'Mô tả ngắn',
       type: 'text',
       rows: 4,
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Hình ảnh chính',
       type: 'image',
       options: {
         hotspot: true,
       },
+      validation: validateMainImage,
       fields: [
         {
           name: 'alt',
           type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          title: 'Văn bản thay thế (Alt)',
+          description: 'Quan trọng cho SEO và người khiếm thị.',
         }
       ]
     },
     {
       name: 'body',
-      title: 'Body',
+      title: 'Nội dung chi tiết',
       type: 'blockContent',
     },
     {
       name: 'seoTitle',
-      title: 'SEO Title',
+      title: 'SEO Title (Tiêu đề SEO)',
       type: 'string',
     },
     {
       name: 'seoDescription',
-      title: 'SEO Description',
+      title: 'SEO Description (Mô tả SEO)',
       type: 'text',
       rows: 3,
-      validation: (Rule) => Rule.max(160).warning('SEO description should be less than 160 characters'),
+      validation: (Rule) => Rule.max(160).warning('Mô tả SEO nên dưới 160 ký tự'),
     },
   ],
   preview: {

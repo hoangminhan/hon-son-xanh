@@ -4,6 +4,7 @@ import { client, safeFetch } from '../../../lib/sanity/client';
 import { urlFor } from '../../../lib/sanity/image';
 import { allTourSlugsQuery, tourBySlugQuery } from '../../../lib/sanity/queries';
 import PortableTextRenderer from '../../../components/PortableTextRenderer';
+import Breadcrumbs from '../../../components/Breadcrumbs';
 
 export async function generateStaticParams() {
   const slugs = await safeFetch(allTourSlugsQuery) || [];
@@ -23,7 +24,9 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: tour.seoTitle || tour.title,
       description: tour.seoDescription || tour.excerpt,
-      images: tour.mainImage ? [urlFor(tour.mainImage).width(1200).height(630).url()] : [],
+      images: tour.mainImage
+        ? [{ url: urlFor(tour.mainImage).width(1200).height(630).url(), width: 1200, height: 630, alt: tour.seoTitle || tour.title }]
+        : [{ url: 'https://hon-son-xanh.vercel.app/images/og-default.jpg', width: 1200, height: 630, alt: 'Hòn Sơn Xanh' }],
     },
   };
 }
@@ -37,15 +40,19 @@ export default async function TourDetail({ params }) {
   }
 
   return (
-    <div className="py-20 bg-slate-50 dark:bg-slate-900 min-h-screen transition-colors">
+    <div className="py-12 md:py-20 bg-slate-50 dark:bg-slate-900 min-h-screen transition-colors">
       <div className="container mx-auto px-4 max-w-4xl">
+        <Breadcrumbs items={[
+          { label: 'Danh Sách Tour', href: '/tour' },
+          { label: tour.title }
+        ]} />
         <div className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-md">
           <div className="h-64 md:h-96 relative overflow-hidden">
              {tour.mainImage && <img src={urlFor(tour.mainImage).width(1200).height(800).url()} alt={`Hình ảnh minh họa cho ${tour.title}`} className="absolute inset-0 w-full h-full object-cover z-0" />}
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
-             <h1 className="text-4xl md:text-5xl font-bold text-white z-20 absolute bottom-8 left-8 text-balance">{tour.title}</h1>
+             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white z-20 absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 text-balance leading-tight">{tour.title}</h1>
           </div>
-          <div className="p-8">
+          <div className="p-5 md:p-8">
             <div className="flex flex-wrap items-center gap-6 mb-8 border-b dark:border-slate-700 pb-6">
                <div>
                  <p className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Thời gian</p>

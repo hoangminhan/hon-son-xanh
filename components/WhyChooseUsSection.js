@@ -50,7 +50,7 @@ export default function WhyChooseUsSection() {
   };
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-900 transition-colors relative">
+    <section className="py-8 bg-slate-50 dark:bg-slate-900 transition-colors relative">
       {/* Optional subtle background pattern */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F97316 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
       
@@ -58,14 +58,14 @@ export default function WhyChooseUsSection() {
         
         {/* Header Section */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <p className="text-sm font-bold tracking-[0.2em] text-slate-400 mb-4 uppercase">Hòn Sơn Xanh</p>
+          {/* <p className="text-sm font-bold tracking-[0.2em] text-slate-400 mb-4 uppercase">Hòn Sơn Xanh</p> */}
           
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-6">
-            <h2 className="text-4xl md:text-5xl font-black text-orange-600 dark:text-orange-500 uppercase tracking-tight">
-              Why Choose
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-orange-600 dark:text-orange-500 uppercase tracking-tight">
+              Tại sao chọn
             </h2>
-            <div className="bg-orange-500 inline-block px-4 py-1 transform -skew-x-12 shadow-sm rounded-lg">
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-white transform skew-x-12">
+            <div className="bg-orange-500 inline-block px-10 py-3 transform -skew-x-12 shadow-sm rounded-lg">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white transform skew-x-12">
                 Hòn Sơn Xanh
               </h2>
             </div>

@@ -49,23 +49,23 @@ export default function Header() {
       <header className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-40 shadow-sm transition-colors duration-300">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-orange-600" onClick={closeMobileMenu}>
-            <Image src="/logo.png" alt="Logo" width={120} height={120} className="dark:brightness-200 dark:contrast-200 transition-all" />
+            <Image src="/logo.png" alt="Logo" width={80} height={80} className="dark:brightness-200 dark:contrast-200 transition-all" />
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="/" className={getLinkClasses('/')}>Trang chủ</Link>
             <Link href="/gioi-thieu" className={getLinkClasses('/gioi-thieu')}>Giới thiệu</Link>
             <Link href="/tour" className={getLinkClasses('/tour')}>Tours</Link>
             <Link href="/khuyen-mai" className={getLinkClasses('/khuyen-mai')}>Khuyến mãi</Link>
-            <Link href="/blog" className={getLinkClasses('/blog')}>Blog</Link>
+            <Link href="/bai-viet" className={getLinkClasses('/bai-viet')}>Bài viết</Link>
             <Link href="/lien-he" className={getLinkClasses('/lien-he')}>Liên hệ</Link>
             <div className="border-l border-slate-200 dark:border-slate-700 pl-6 ml-2">
               <ThemeToggle />
             </div>
           </nav>
-          
+
           <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
-            <button 
+            <button
               className="text-slate-600 dark:text-slate-300 p-2"
               onClick={() => setIsMobileMenuOpen(true)}
             >
@@ -76,17 +76,16 @@ export default function Header() {
       </header>
 
       {/* Full Screen Mobile Menu */}
-      <div 
-        className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+      <div
+        className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800">
           <div className="flex flex-col h-full p-6 pt-12">
-            
+
             {/* Header of Mobile Menu */}
             <div className="relative flex items-center justify-center mb-10">
-              <button 
+              <button
                 onClick={closeMobileMenu}
                 className="absolute left-0 p-2 text-slate-800 dark:text-slate-200"
               >
@@ -103,7 +102,7 @@ export default function Header() {
               <Link href="/gioi-thieu" className={getMobileLinkClasses('/gioi-thieu')} onClick={closeMobileMenu}>Giới thiệu</Link>
               <Link href="/tour" className={getMobileLinkClasses('/tour')} onClick={closeMobileMenu}>Tours</Link>
               <Link href="/khuyen-mai" className={getMobileLinkClasses('/khuyen-mai')} onClick={closeMobileMenu}>Khuyến mãi</Link>
-              <Link href="/blog" className={getMobileLinkClasses('/blog')} onClick={closeMobileMenu}>Blog</Link>
+              <Link href="/bai-viet" className={getMobileLinkClasses('/bai-viet')} onClick={closeMobileMenu}>Blog</Link>
               <Link href="/lien-he" className={getMobileLinkClasses('/lien-he')} onClick={closeMobileMenu}>Liên hệ</Link>
             </nav>
 

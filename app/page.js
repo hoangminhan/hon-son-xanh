@@ -3,24 +3,16 @@ import { client, safeFetch } from '../lib/sanity/client';
 import { urlFor } from '../lib/sanity/image';
 import DestinationsSection from '../components/DestinationsSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
+import AutoCarousel from '../components/AutoCarousel';
 import { Star, Heart, Compass, ArrowRight } from 'lucide-react';
+import { getCategoryConfig } from '../lib/categoryConfig';
+import { featuredToursQuery, recentPostsQuery, allDestinationsQuery } from '../lib/sanity/queries';
 
 export default async function Home() {
-  const featuredToursQuery = `*[_type == "tour"] | order(_createdAt desc)[0...3] {
-    _id, title, "slug": slug.current, excerpt, mainImage, duration, priceText
-  }`;
-  const recentPostsQuery = `*[_type == "post"] | order(publishedAt desc)[0...3] {
-    _id, title, "slug": slug.current, excerpt, mainImage, publishedAt
-  }`;
-
-  const destinationsQuery = `*[_type == "destination"] | order(_createdAt desc) {
-    _id, title, "slug": slug.current, excerpt, mainImage
-  }`;
-
   const [featuredTours, recentPosts, destinations] = await Promise.all([
     safeFetch(featuredToursQuery).then(res => res || []),
     safeFetch(recentPostsQuery).then(res => res || []),
-    safeFetch(destinationsQuery).then(res => {
+    safeFetch(allDestinationsQuery).then(res => {
       return (res || []).map(d => ({
         ...d,
         imageUrl: d.mainImage ? urlFor(d.mainImage).width(600).height(800).url() : null
@@ -43,16 +35,16 @@ export default async function Home() {
         </div>
 
         {/* Content */}
-        <div className="relative z-20 text-center px-4 max-w-5xl mx-auto w-full pt-20">
+        <div className="relative z-20 text-center px-4 max-w-5xl mx-auto w-full pt-20 pb-24 sm:pb-0">
           <div data-aos="fade-down" data-aos-duration="1000">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white mb-8 shadow-xl">
-              <Compass className="w-5 h-5 text-orange-400 animate-spin-slow" />
-              <span className="text-sm font-bold tracking-[0.2em] uppercase">Hành trình khám phá thiên nhiên</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white mb-8 shadow-xl max-w-xs sm:max-w-none">
+              <Compass className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400 animate-spin-slow flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-bold tracking-[0.1em] sm:tracking-[0.2em] uppercase">Hành trình khám phá thiên nhiên</span>
             </div>
           </div>
           
           <h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 text-white drop-shadow-[0_0_15px_rgba(0,0,0,0.5)] leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-8 text-white drop-shadow-[0_0_15px_rgba(0,0,0,0.5)] leading-tight"
             data-aos="zoom-in" 
             data-aos-delay="200"
             data-aos-duration="1000"
@@ -80,8 +72,8 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce" data-aos="fade-in" data-aos-delay="1000">
+        {/* Scroll Indicator — ẩn trên mobile để tránh đè lên button */}
+        <div className="hidden sm:flex absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce" data-aos="fade-in" data-aos-delay="1000">
           <div className="w-8 h-12 rounded-full border-2 border-white/50 flex justify-center p-2">
             <div className="w-1.5 h-3 bg-orange-400 rounded-full" />
           </div>
@@ -92,13 +84,13 @@ export default async function Home() {
       <DestinationsSection destinations={destinations} />
 
       {/* Featured Tours */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
+      <section className="py-12 md:py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl md:text-5xl font-black text-slate-800 dark:text-white mb-4">Tour Nổi Bật</h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Khám phá những hành trình được yêu thích nhất với lịch trình hấp dẫn và dịch vụ trọn gói chuẩn mực.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AutoCarousel>
             {featuredTours.map((tour, index) => (
               <div key={tour._id} className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all flex flex-col group" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="h-56 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
@@ -120,19 +112,19 @@ export default async function Home() {
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white line-clamp-2">{tour.title}</h3>
                   <p className="text-slate-600 dark:text-slate-300 mb-6 line-clamp-2 font-medium flex-1">{tour.excerpt}</p>
-                  <div className="flex items-end justify-between mt-auto pt-2">
-                    <div>
-                      <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider">Starting at</p>
-                      <p className="text-3xl font-black text-orange-600">{tour.priceText}</p>
+                  <div className="mt-auto pt-4 flex flex-col justify-between gap-3 border-t border-slate-100 dark:border-slate-700">
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider">Starting at</p>
+                      <p className="text-2xl font-black text-orange-600 truncate">{tour.priceText}</p>
                     </div>
-                    <Link href={`/tour/${tour.slug}`} className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors shadow-sm">
+                    <Link href={`/tour/${tour.slug}`} className="w-full shrink-0 text-center px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors shadow-sm text-sm">
                       Book Now
                     </Link>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
+          </AutoCarousel>
         </div>
       </section>
 
@@ -140,7 +132,7 @@ export default async function Home() {
       <WhyChooseUsSection />
 
       {/* Trải nghiệm nổi bật */}
-      <section className="py-20 bg-white dark:bg-slate-800 transition-colors">
+      {/* <section className="py-12 md:py-20 bg-white dark:bg-slate-800 transition-colors">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-12">Trải Nghiệm Đáng Nhớ</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -161,39 +153,49 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Recent Blog */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
+      <section className="py-12 md:py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-4">Cẩm Nang Du Lịch</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AutoCarousel>
             {recentPosts.map((post) => (
-              <Link href={`/blog/${post.slug}`} key={post._id} className="group">
+              <Link href={`/bai-viet/${post.slug}`} key={post._id} className="group">
                 <div className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full border border-transparent dark:border-slate-700">
                   <div className="h-48 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
                     {post.mainImage && <img src={urlFor(post.mainImage).width(600).height(400).url()} alt={`Hình ảnh minh họa cho bài viết ${post.title}`} className="w-full h-full object-cover" />}
                   </div>
-                  <div className="p-6">
-                    <p className="text-sm text-orange-600 dark:text-orange-400 mb-2">{post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('vi-VN') : ''}</p>
-                    <h3 className="text-lg font-bold mb-2 text-slate-800 dark:text-slate-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors line-clamp-2">
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 flex-wrap mb-2">
+                      {post.category && (() => {
+                        const cat = getCategoryConfig(post.category);
+                        return (
+                          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold ${cat.className}`}>
+                            {cat.emoji} {cat.label}
+                          </span>
+                        );
+                      })()}
+                      <p className="text-xs text-slate-400 dark:text-slate-500">{post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('vi-VN') : ''}</p>
+                    </div>
+                    <h3 className="text-base font-bold mb-2 text-slate-800 dark:text-slate-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors line-clamp-2">
                       {post.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400 line-clamp-2">{post.excerpt}</p>
+                    <p className="text-slate-600 dark:text-slate-400 line-clamp-2 text-sm">{post.excerpt}</p>
                   </div>
                 </div>
               </Link>
             ))}
-          </div>
+          </AutoCarousel>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-orange-600 text-white text-center">
+      <section className="py-12 md:py-20 bg-orange-600 text-white text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Bạn đã sẵn sàng cho chuyến đi?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Bạn đã sẵn sàng cho chuyến đi?</h2>
           <p className="text-orange-100 mb-8 max-w-2xl mx-auto text-lg">
             Liên hệ với chúng tôi để được tư vấn lịch trình chi tiết và nhận những ưu đãi hấp dẫn nhất cho chuyến du lịch Hòn Sơn của bạn.
           </p>

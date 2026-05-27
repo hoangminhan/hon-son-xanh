@@ -1,17 +1,19 @@
+import { validateMainImage } from '../helpers';
+
 export const post = {
   name: 'post',
-  title: 'Blog Post',
+  title: 'Bài Viết (Blog)',
   type: 'document',
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Tiêu đề',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'Đường dẫn (Slug)',
       type: 'slug',
       options: {
         source: 'title',
@@ -21,51 +23,68 @@ export const post = {
     },
     {
       name: 'excerpt',
-      title: 'Excerpt',
+      title: 'Mô tả ngắn',
       type: 'text',
       rows: 4,
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Hình ảnh chính',
       type: 'image',
       options: {
         hotspot: true,
       },
+      validation: validateMainImage,
       fields: [
         {
           name: 'alt',
           type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          title: 'Văn bản thay thế (Alt)',
+          description: 'Quan trọng cho SEO và người khiếm thị.',
         }
       ]
     },
     {
       name: 'publishedAt',
-      title: 'Published at',
+      title: 'Ngày xuất bản',
       type: 'datetime',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'body',
-      title: 'Body',
+      title: 'Nội dung bài viết',
       type: 'blockContent',
     },
     {
-      name: 'seoTitle',
-      title: 'SEO Title',
+      name: 'category',
+      title: 'Danh mục',
       type: 'string',
-      description: 'Optional. Fallback to post title if empty.',
+      options: {
+        list: [
+          { title: '🧭 Kinh nghiệm du lịch', value: 'kinh-nghiem' },
+          { title: '📍 Địa điểm', value: 'dia-diem' },
+          { title: '🦞 Ẩm thực', value: 'am-thuc' },
+          { title: '🏄 Hoạt động', value: 'hoat-dong' },
+          { title: '📰 Tin tức', value: 'tin-tuc' },
+        ],
+        layout: 'radio',
+      },
+      description: 'Chọn danh mục phù hợp cho bài viết.',
+    },
+    {
+      name: 'seoTitle',
+      title: 'SEO Title (Tiêu đề SEO)',
+      type: 'string',
+      description: 'Không bắt buộc. Tự động lấy Tiêu đề bài viết nếu để trống.',
     },
     {
       name: 'seoDescription',
-      title: 'SEO Description',
+      title: 'SEO Description (Mô tả SEO)',
       type: 'text',
       rows: 3,
-      validation: (Rule) => Rule.max(160).warning('SEO description should be less than 160 characters'),
-      description: 'Optional. Fallback to excerpt if empty.',
+      validation: (Rule) => Rule.max(160).warning('Mô tả SEO nên dưới 160 ký tự'),
+      description: 'Không bắt buộc. Tự động lấy Mô tả ngắn nếu để trống.',
     },
   ],
   preview: {

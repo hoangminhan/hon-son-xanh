@@ -48,7 +48,7 @@ export default function PromotionPage() {
       </section>
 
       {/* Coupon Codes Section */}
-      <section className="py-20 container mx-auto px-4 -mt-10 relative z-30">
+      <section className="py-12 md:py-20 container mx-auto px-4 -mt-10 relative z-30">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {coupons.map((coupon, index) => (
             <div key={coupon.id} className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
@@ -80,7 +80,7 @@ export default function PromotionPage() {
       </section>
 
       {/* Flash Sale Tours Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-slate-800 transition-colors">
+      <section className="py-12 md:py-20 bg-white dark:bg-slate-800 transition-colors">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 dark:border-slate-700 pb-6" data-aos="fade-up">
             <div>
@@ -136,7 +136,7 @@ export default function PromotionPage() {
       </section>
 
       {/* Features/Trust Section below Promos */}
-      <section className="py-20 bg-orange-50 dark:bg-slate-900 transition-colors border-t border-slate-200 dark:border-slate-800">
+      <section className="py-12 md:py-20 bg-orange-50 dark:bg-slate-900 transition-colors border-t border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 max-w-5xl" data-aos="zoom-in-up">
           <div className="bg-white dark:bg-slate-800 p-10 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100 dark:border-slate-700 text-center">
             <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-8">Tại Sao Nên Đặt Tour Cùng Hòn Sơn Xanh?</h2>

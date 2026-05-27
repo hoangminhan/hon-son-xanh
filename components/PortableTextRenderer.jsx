@@ -12,7 +12,7 @@ const components = {
           alt={value.alt || 'Hình ảnh'}
           loading="lazy"
           src={urlFor(value).width(800).auto('format').url()}
-          className="rounded-lg shadow-sm my-8 w-full object-cover"
+          className="rounded-2xl shadow-md my-8 w-full h-auto object-contain"
         />
       );
     },

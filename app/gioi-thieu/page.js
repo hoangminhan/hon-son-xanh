@@ -22,7 +22,7 @@ export default function AboutPage() {
         </div>
         <div className="container mx-auto px-4 relative z-20 text-center" data-aos="fade-up">
           <p className="text-orange-400 font-bold tracking-[0.2em] uppercase mb-4 drop-shadow-md">Về Chúng Tôi</p>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 drop-shadow-lg leading-tight">
+          <h1 className="text-4xl md:text-7xl font-black text-white mb-6 drop-shadow-lg leading-tight">
             Đam Mê Khám Phá <br className="hidden md:block" />
             <span className="text-orange-500">Biển Đảo</span> Quê Hương
           </h1>
@@ -33,7 +33,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 md:py-32 container mx-auto px-4">
+      <section className="py-12 md:py-20 container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div className="lg:w-1/2 relative w-full" data-aos="fade-right">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
@@ -109,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20 md:py-32 container mx-auto px-4">
+      <section className="py-12 md:py-20 container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
           <p className="text-sm font-bold tracking-[0.2em] text-slate-400 mb-4 uppercase">Tại sao chọn chúng tôi</p>
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Giá Trị Cốt Lõi</h2>
@@ -144,7 +144,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 md:py-32 bg-orange-600 overflow-hidden">
+      <section className="relative py-14 md:py-24 bg-orange-600 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center mix-blend-multiply opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">Sẵn Sàng Cho Chuyến Đi Đáng Nhớ?</h2>
