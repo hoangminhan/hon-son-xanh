@@ -1,4 +1,5 @@
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import { ThemeProvider } from '../components/ThemeProvider';
 import { AOSInit } from '../components/AOSInit';
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
             {children}
           </LayoutWrapper>
         </ThemeProvider>
+        <GoogleAnalytics gaId="G-JTG6PEK781" />
       </body>
     </html>
   );
