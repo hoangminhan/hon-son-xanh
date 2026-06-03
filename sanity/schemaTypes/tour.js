@@ -98,10 +98,29 @@ export const tour = {
       ]
     },
     {
+      name: 'gallery',
+      title: 'Thư viện ảnh',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      description: 'Thêm nhiều hình ảnh khác về tour (khách sạn, món ăn, cảnh đẹp, v.v.)',
+    },
+    {
       name: 'duration',
       title: 'Thời gian',
       type: 'string',
       description: 'Ví dụ: "2 Ngày 1 Đêm"',
+    },
+    {
+      name: 'departure',
+      title: 'Lịch khởi hành',
+      type: 'string',
+      description: 'Ví dụ: "Hàng ngày", "Thứ 7 hàng tuần"',
+    },
+    {
+      name: 'transportation',
+      title: 'Phương tiện',
+      type: 'string',
+      description: 'Ví dụ: "Tàu cao tốc & Xe máy"',
     },
     {
       name: 'priceText',
@@ -117,6 +136,12 @@ export const tour = {
     {
       name: 'included',
       title: 'Dịch vụ bao gồm',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'excluded',
+      title: 'Dịch vụ KHÔNG bao gồm',
       type: 'array',
       of: [{ type: 'string' }],
     },

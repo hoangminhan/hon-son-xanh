@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowRight, Loader2, ChevronDown, ChevronUp } from 'lucide-react';
 import BlogCard from './BlogCard';
 
 export default function PaginatedBlogList({ posts = [], initialCount = 9 }) {
@@ -30,7 +30,7 @@ export default function PaginatedBlogList({ posts = [], initialCount = 9 }) {
         <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto">
           Chúng tôi đang chuẩn bị những bài viết hay ho. Hãy quay lại sớm nhé!
         </p>
-        <Link href="/" className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-colors shadow-md">
           Về trang chủ <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
@@ -59,15 +59,21 @@ export default function PaginatedBlogList({ posts = [], initialCount = 9 }) {
           <button
             onClick={handleLoadMore}
             disabled={isLoading}
-            className="cursor-pointer inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white dark:bg-slate-800 text-slate-800 dark:text-white font-bold rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 hover:border-orange-500 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 hover:shadow-md transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
+            className="cursor-pointer group relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-full shadow-[0_4px_20px_rgba(249,115,22,0.3)] hover:shadow-[0_8px_30px_rgba(249,115,22,0.5)] hover:-translate-y-1 overflow-hidden transition-all duration-300 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
+            {/* Hiệu ứng shine bóng bẩy */}
+            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-[shimmer_1.5s_infinite]"></div>
+            
             {isLoading ? (
               <>
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <Loader2 className="w-6 h-6 animate-spin" />
                 Đang tải...
               </>
             ) : (
-              <>Tải thêm bài viết ({posts.length - visibleCount} bài nữa)</>
+              <>
+                Tải thêm bài viết <span className="font-medium text-orange-100 text-sm">({posts.length - visibleCount} bài nữa)</span>
+                <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+              </>
             )}
           </button>
         )}
@@ -75,10 +81,11 @@ export default function PaginatedBlogList({ posts = [], initialCount = 9 }) {
         {visibleCount > initialCount && (
           <button
             onClick={() => setVisibleCount(initialCount)}
-            className="cursor-pointer inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 font-bold rounded-2xl border border-transparent hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-800 dark:hover:text-white transition-all active:scale-95"
-          >
-            Thu gọn lại
-          </button>
+             className="cursor-pointer group inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold rounded-full shadow-md border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 active:scale-95"
+           >
+             Thu gọn lại
+             <ChevronUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+           </button>
         )}
       </div>
     </div>

@@ -70,7 +70,7 @@ export default async function BlogPage() {
             <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto">
               Chúng tôi đang chuẩn bị những bài viết hay ho. Hãy quay lại sớm nhé!
             </p>
-            <Link href="/" className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors">
+            <Link href="/" className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-colors shadow-md">
               Về trang chủ <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

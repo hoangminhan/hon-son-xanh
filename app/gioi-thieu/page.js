@@ -42,7 +42,7 @@ export default function AboutPage() {
       <section className="py-12 md:py-20 container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div className="lg:w-1/2 relative w-full" data-aos="fade-right">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 aspect-[3/4] md:aspect-square lg:aspect-[4/5]">
               <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800&auto=format&fit=crop" alt="Câu chuyện Hòn Sơn Xanh" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
             {/* Decoration blocks */}
@@ -158,10 +158,10 @@ export default function AboutPage() {
             Hãy để chúng tôi đồng hành cùng bạn khám phá những bãi biển tuyệt đẹp và thưởng thức hải sản tươi ngon nhất Hòn Sơn.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/tour" className="px-8 py-4 bg-white text-orange-600 font-bold text-lg rounded-xl hover:bg-slate-50 transition-colors shadow-xl hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 flex items-center justify-center">
+            <Link href="/tour" className="px-8 py-4 bg-white text-orange-600 font-bold text-lg rounded-full hover:bg-slate-50 transition-colors shadow-xl hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 flex items-center justify-center">
               Khám Phá Tour Ngay
             </Link>
-            <Link href="/lien-he" className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded-xl hover:bg-white/10 transition-colors flex items-center justify-center">
+            <Link href="/lien-he" className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded-full hover:bg-white/10 transition-colors flex items-center justify-center">
               Liên Hệ Tư Vấn
             </Link>
           </div>

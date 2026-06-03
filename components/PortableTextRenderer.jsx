@@ -42,19 +42,19 @@ const components = {
     },
   },
   block: {
-    h2: ({ children }) => <h2 className="text-2xl font-bold mt-8 mb-4 text-slate-800">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-xl font-bold mt-6 mb-3 text-slate-800">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-lg font-bold mt-4 mb-2 text-slate-800">{children}</h4>,
-    normal: ({ children }) => <p className="mb-4 text-slate-600 leading-relaxed">{children}</p>,
+    h2: ({ children }) => <h2 className="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-xl font-bold mt-6 mb-3 text-slate-800 dark:text-slate-100">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-lg font-bold mt-4 mb-2 text-slate-800 dark:text-slate-100">{children}</h4>,
+    normal: ({ children }) => <p className="mb-4 text-slate-600 dark:text-slate-300 leading-relaxed">{children}</p>,
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-4 bg-slate-50 text-slate-700 italic">
+      <blockquote className="border-l-4 border-orange-400 pl-4 py-2 my-4 bg-orange-50 dark:bg-orange-950/30 text-slate-700 dark:text-slate-300 italic rounded-r-xl">
         {children}
       </blockquote>
     ),
   },
   list: {
-    bullet: ({ children }) => <ul className="list-disc pl-6 mb-4 text-slate-600 space-y-2">{children}</ul>,
-    number: ({ children }) => <ol className="list-decimal pl-6 mb-4 text-slate-600 space-y-2">{children}</ol>,
+    bullet: ({ children }) => <ul className="pl-5 mb-4 text-slate-600 dark:text-slate-300 space-y-2">{children}</ul>,
+    number: ({ children }) => <ol className="list-decimal pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">{children}</ol>,
   },
   marks: {
     link: ({ children, value }) => {

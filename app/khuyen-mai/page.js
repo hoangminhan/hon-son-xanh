@@ -123,7 +123,7 @@ export default function PromotionPage() {
                         <p className="text-sm text-slate-500 dark:text-slate-400 line-through mb-1 decoration-red-500/50">{tour.oldPrice}</p>
                         <p className="text-2xl font-black text-orange-600 dark:text-orange-400">{tour.newPrice}</p>
                       </div>
-                      <Link href="/tour" className="px-5 py-2.5 bg-slate-900 dark:bg-orange-500 text-white font-bold rounded-xl hover:bg-slate-800 dark:hover:bg-orange-600 transition-colors shadow-md">
+                      <Link href="/tour" className="px-5 py-2.5 bg-slate-900 dark:bg-orange-500 text-white font-bold rounded-full hover:bg-slate-800 dark:hover:bg-orange-600 transition-colors shadow-md">
                         Đặt Ngay
                       </Link>
                     </div>

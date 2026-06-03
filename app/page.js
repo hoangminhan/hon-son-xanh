@@ -87,7 +87,7 @@ export default async function Home() {
 
       {/* Featured Tours */}
       <section className="py-12 md:py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1380px] mx-auto px-4 md:px-8">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl md:text-5xl font-black text-slate-800 dark:text-white mb-4">Tour Nổi Bật</h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Khám phá những hành trình được yêu thích nhất với lịch trình hấp dẫn và dịch vụ trọn gói chuẩn mực.</p>
@@ -129,7 +129,7 @@ export default async function Home() {
 
       {/* Recent Blog */}
       <section className="py-12 md:py-20 bg-slate-50 dark:bg-slate-900 transition-colors">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1380px] mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-4">Cẩm Nang Du Lịch</h2>
           </div>
@@ -148,7 +148,7 @@ export default async function Home() {
 
       {/* CTA */}
       <section className="py-12 md:py-20 bg-orange-600 text-white text-center">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1380px] mx-auto px-4 md:px-8">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Bạn đã sẵn sàng cho chuyến đi?</h2>
           <p className="text-orange-100 mb-8 max-w-2xl mx-auto text-lg">
             Liên hệ với chúng tôi để được tư vấn lịch trình chi tiết và nhận những ưu đãi hấp dẫn nhất cho chuyến du lịch Hòn Sơn của bạn.

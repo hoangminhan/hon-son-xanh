@@ -28,7 +28,7 @@ export default async function TourPage() {
     <div className="bg-slate-50 dark:bg-slate-900 min-h-screen transition-colors">
       
       {/* ── Hero Section ── */}
-      <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+      <section className="relative pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-orange-950 z-10" />
           <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-20" />
@@ -77,7 +77,7 @@ export default async function TourPage() {
                   <p className="text-slate-600 dark:text-slate-300 text-xs md:text-sm font-medium mb-4 line-clamp-3">{coupon.desc}</p>
                   
                   <div className="mt-auto flex items-center justify-end">
-                    <Link href="/lien-he" className="text-[10px] sm:text-xs font-bold text-orange-600 bg-orange-100 dark:text-orange-400 dark:bg-orange-900/30 px-3 py-1.5 rounded-lg hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 transition-colors uppercase tracking-wider shrink-0 flex items-center gap-1">
+                    <Link href="/lien-he" className="text-[10px] sm:text-xs font-bold text-orange-600 bg-orange-100 dark:text-orange-400 dark:bg-orange-900/30 px-3 py-1.5 rounded-full hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 transition-colors uppercase tracking-wider shrink-0 flex items-center gap-1">
                       Nhận Ưu Đãi
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
