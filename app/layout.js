@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 const mainFont = Plus_Jakarta_Sans({ subsets: ['latin', 'vietnamese'] });
 
 export const metadata = {
-  metadataBase: new URL('https://honsonxanh.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://honsonxanh.vn'),
   title: {
     default: 'Hòn Sơn Xanh - Du lịch Hòn Sơn',
     template: '%s | Hòn Sơn Xanh',
@@ -23,7 +23,7 @@ export const metadata = {
     siteName: 'Hòn Sơn Xanh',
     images: [
       {
-        url: 'https://hon-son-xanh.vercel.app/images/og-default.jpg',
+        url: '/images/og-default.jpg',
         width: 1200,
         height: 630,
         alt: 'Hòn Sơn Xanh',

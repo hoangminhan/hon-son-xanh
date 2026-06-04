@@ -2,8 +2,14 @@ import Link from 'next/link';
 import { Tag, Ticket, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Khuyến Mãi | Hòn Sơn Xanh',
+  title: 'Khuyến Mãi',
   description: 'Tổng hợp các chương trình khuyến mãi, ưu đãi giảm giá và combo tiết kiệm khi du lịch Hòn Sơn.',
+  openGraph: {
+    title: 'Khuyến Mãi | Hòn Sơn Xanh',
+    description: 'Tổng hợp các chương trình khuyến mãi, ưu đãi giảm giá.',
+    url: '/khuyen-mai',
+    images: ['/images/og-default.jpg'],
+  },
 };
 
 export default function PromotionPage() {

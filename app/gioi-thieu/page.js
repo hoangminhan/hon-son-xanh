@@ -2,12 +2,13 @@ import Link from 'next/link';
 import { Shield, Heart, Leaf, Users, Map, Award, Smile, Info } from 'lucide-react';
 
 export const metadata = {
-  title: 'Giới Thiệu | Hòn Sơn Xanh',
+  title: 'Giới Thiệu',
   description: 'Tìm hiểu về Hòn Sơn Xanh và đội ngũ của chúng tôi. Chúng tôi tự hào mang đến những trải nghiệm du lịch tốt nhất tại Hòn Sơn.',
   openGraph: {
     title: 'Giới Thiệu | Hòn Sơn Xanh',
     description: 'Tìm hiểu về Hòn Sơn Xanh và đội ngũ của chúng tôi.',
-    url: 'https://honsonxanh.com/gioi-thieu',
+    url: '/gioi-thieu',
+    images: ['/images/og-default.jpg'],
   },
 };
 

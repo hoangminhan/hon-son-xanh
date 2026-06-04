@@ -7,12 +7,13 @@ import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
 import PaginatedBlogList from '../../components/PaginatedBlogList';
 
 export const metadata = {
-  title: 'Cẩm Nang Du Lịch | Hòn Sơn Xanh',
+  title: 'Cẩm Nang Du Lịch',
   description: 'Kinh nghiệm du lịch Hòn Sơn, chia sẻ các địa điểm đẹp, ẩm thực và mẹo vặt khi du lịch tại đảo Hòn Sơn, Kiên Giang.',
   openGraph: {
     title: 'Cẩm Nang Du Lịch | Hòn Sơn Xanh',
     description: 'Kinh nghiệm du lịch Hòn Sơn tự túc, các bài viết mới nhất.',
-    url: 'https://honsonxanh.com/bai-viet',
+    url: '/bai-viet',
+    images: ['/images/og-default.jpg'],
   },
 };
 
