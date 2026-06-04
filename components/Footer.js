@@ -10,7 +10,6 @@ export default async function Footer() {
     { href: '/', label: 'Trang chủ' },
     { href: '/gioi-thieu', label: 'Giới thiệu' },
     { href: '/tour', label: 'Tours' },
-    { href: '/khuyen-mai', label: 'Khuyến mãi' },
     { href: '/bai-viet', label: 'Bài viết' },
     { href: '/lien-he', label: 'Liên hệ' },
   ];

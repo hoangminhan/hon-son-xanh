@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
       description: tour.seoDescription || tour.excerpt,
       images: tour.mainImage
         ? [{ url: urlFor(tour.mainImage).width(1200).height(630).url(), width: 1200, height: 630, alt: tour.seoTitle || tour.title }]
-        : [{ url: 'https://hon-son-xanh.vercel.app/images/og-default.jpg', width: 1200, height: 630, alt: 'Hòn Sơn Xanh' }],
+        : [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: 'Hòn Sơn Xanh' }],
     },
   };
 }

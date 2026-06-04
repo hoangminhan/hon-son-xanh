@@ -19,7 +19,7 @@ const components = {
     youtube: ({ value }) => {
       const { url } = value;
       if (!url) return null;
-      
+
       const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
       const match = url.match(regExp);
       const id = (match && match[2].length === 11) ? match[2] : null;
@@ -42,30 +42,66 @@ const components = {
     },
   },
   block: {
-    h2: ({ children }) => <h2 className="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-xl font-bold mt-6 mb-3 text-slate-800 dark:text-slate-100">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-lg font-bold mt-4 mb-2 text-slate-800 dark:text-slate-100">{children}</h4>,
-    normal: ({ children }) => <p className="mb-4 text-slate-600 dark:text-slate-300 leading-relaxed">{children}</p>,
+    h2: ({ children }) => (
+      <h2 className="text-2xl font-bold mt-10 mb-4 text-slate-800 dark:text-white border-b border-slate-100 dark:border-slate-700 pb-3">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-xl font-bold mt-8 mb-3 text-slate-800 dark:text-slate-100">{children}</h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-lg font-bold mt-6 mb-2 text-slate-800 dark:text-slate-100">{children}</h4>
+    ),
+    normal: ({ children }) => (
+      <p className="mb-5 text-slate-600 dark:text-slate-300 leading-relaxed text-base">{children}</p>
+    ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-orange-400 pl-4 py-2 my-4 bg-orange-50 dark:bg-orange-950/30 text-slate-700 dark:text-slate-300 italic rounded-r-xl">
+      <blockquote className="border-l-4 border-orange-400 pl-5 py-3 my-6 bg-orange-50 dark:bg-orange-950/30 text-slate-700 dark:text-slate-300 italic rounded-r-xl text-base">
         {children}
       </blockquote>
     ),
   },
   list: {
-    bullet: ({ children }) => <ul className="pl-5 mb-4 text-slate-600 dark:text-slate-300 space-y-2">{children}</ul>,
-    number: ({ children }) => <ol className="list-decimal pl-6 mb-4 text-slate-600 dark:text-slate-300 space-y-2">{children}</ol>,
+    bullet: ({ children }) => (
+      <ul className="pl-2 mb-5 text-slate-600 dark:text-slate-300 space-y-2.5">{children}</ul>
+    ),
+    number: ({ children }) => (
+      <ol className="pl-2 mb-5 text-slate-600 dark:text-slate-300 space-y-2.5">{children}</ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => (
+      <li className="flex items-start gap-3 text-base leading-relaxed">
+        <span className="mt-2 w-2 h-2 rounded-full bg-orange-400 shrink-0" />
+        <span>{children}</span>
+      </li>
+    ),
+    number: ({ children, index }) => (
+      <li className="flex items-start gap-3 text-base leading-relaxed">
+        <span className="mt-0.5 w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/40 text-orange-600 dark:text-orange-400 text-xs font-bold flex items-center justify-center shrink-0">
+          {(index ?? 0) + 1}
+        </span>
+        <span>{children}</span>
+      </li>
+    ),
   },
   marks: {
     link: ({ children, value }) => {
       const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
       const target = !value.href.startsWith('/') ? '_blank' : undefined;
       return (
-        <a href={value.href} rel={rel} target={target} className="text-blue-600 hover:underline">
+        <a href={value.href} rel={rel} target={target} className="text-orange-600 dark:text-orange-400 hover:underline font-medium">
           {children}
         </a>
       );
     },
+    strong: ({ children }) => (
+      <strong className="font-bold text-slate-800 dark:text-slate-100">{children}</strong>
+    ),
+    em: ({ children }) => (
+      <em className="italic text-slate-600 dark:text-slate-300">{children}</em>
+    ),
   },
 };
 
