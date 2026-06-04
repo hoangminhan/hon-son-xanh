@@ -1,6 +1,8 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { schema } from './sanity/schemaTypes';
+import DeployTool from './sanity/components/DeployTool';
+import { RocketIcon } from '@sanity/icons';
 
 export default defineConfig({
   basePath: '/studio',
@@ -10,5 +12,14 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool(),
+  ],
+  tools: (prev) => [
+    ...prev,
+    {
+      name: 'deploy',
+      title: 'Deploy Website',
+      icon: RocketIcon,
+      component: DeployTool,
+    },
   ],
 });
