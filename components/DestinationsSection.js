@@ -86,10 +86,10 @@ export default function DestinationsSection({ destinations = [] }) {
                   </div>
 
                   {/* Footer Info */}
-                  <div className="absolute bottom-6 left-6 right-6 flex items-center gap-2 text-white font-bold drop-shadow-md">
+                  {/* <div className="absolute bottom-6 left-6 right-6 flex items-center gap-2 text-white font-bold drop-shadow-md">
                     <Map className="w-[22px] h-[22px]" strokeWidth={2} />
                     <span className="text-lg">{dest.toursCount} Tour</span>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>

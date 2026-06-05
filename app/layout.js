@@ -10,6 +10,10 @@ import Footer from '../components/Footer';
 const mainFont = Plus_Jakarta_Sans({ subsets: ['latin', 'vietnamese'] });
 
 export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://honsonxanh.vn'),
   title: {
     default: 'Hòn Sơn Xanh - Du lịch Hòn Sơn',
