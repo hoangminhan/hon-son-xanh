@@ -33,12 +33,12 @@ export default async function Footer() {
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-2xl">🌿</span>
                 <span className="text-2xl font-black text-white tracking-tight">
-                  {settings.siteName || 'Hòn Sơn Xanh'}
+                  Hòn Sơn Xanh
                 </span>
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed mb-7 max-w-sm">
-                {settings.description || 'Trải nghiệm vẻ đẹp hoang sơ của Hòn Sơn cùng những dịch vụ du lịch tốt nhất. Chúng tôi mang đến hành trình khó quên trên đảo Hòn Sơn, Kiên Giang.'}
-              </p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-7 max-w-sm">
+                  Trải nghiệm vẻ đẹp hoang sơ của Hòn Sơn cùng những dịch vụ du lịch tốt nhất. Chúng tôi mang đến hành trình khó quên trên đảo Hòn Sơn, Kiên Giang.
+                </p>
 
               {/* Social / Contact icon buttons */}
               <div className="flex items-center gap-3">
@@ -199,7 +199,7 @@ export default async function Footer() {
         <div className="border-t border-slate-800">
           <div className="max-w-[1380px] mx-auto px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-slate-500 text-sm">
-              © {new Date().getFullYear()} {settings.siteName || 'Hòn Sơn Xanh'}. All rights reserved.
+              © {new Date().getFullYear()} Hòn Sơn Xanh. All rights reserved.
             </p>
             <p className="text-slate-600 text-xs flex items-center gap-1.5">
               <span>Đảo Hòn Sơn, Kiên Hải, Kiên Giang</span>

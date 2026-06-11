@@ -4,17 +4,6 @@ export const siteSettings = {
   type: 'document',
   fields: [
     {
-      name: 'siteName',
-      title: 'Tên Website',
-      type: 'string',
-    },
-    {
-      name: 'description',
-      title: 'Mô tả Website',
-      type: 'text',
-      rows: 3,
-    },
-    {
       name: 'phone',
       title: 'Số Điện Thoại (Hotline)',
       type: 'string',

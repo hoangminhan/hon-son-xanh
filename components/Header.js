@@ -63,7 +63,7 @@ export default function Header() {
             <Link href="/" onClick={closeMobileMenu} className="flex items-center shrink-0">
               <Image
                 src="/logo.png"
-                alt="Hòn Sơn Xanh"
+              alt="Hòn Sơn Xanh"
                 width={280}
                 height={112}
                 className={`w-auto object-contain origin-left dark:brightness-200 dark:contrast-200 transition-all duration-300 ${
