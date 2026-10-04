@@ -35,6 +35,8 @@ export const siteSettings = {
       options: {
         hotspot: true,
       },
+      // Ẩn vì website chưa dùng trường này: logo đang là file tĩnh public/logo.png
+      hidden: true,
     },
   ],
 };
