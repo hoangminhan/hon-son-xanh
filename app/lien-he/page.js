@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: 'Liên Hệ | Hòn Sơn Xanh',
     description: 'Liên hệ với chúng tôi để đặt tour và nhận tư vấn miễn phí.',
-    url: 'https://honsonxanh.com/lien-he',
+    url: '/lien-he',
   },
 };
 
@@ -47,7 +47,7 @@ export default async function ContactPage() {
           <div>
             <h2 className="text-2xl font-bold mb-6 text-slate-800 dark:text-white">Thông tin liên hệ</h2>
             <p className="text-slate-600 dark:text-slate-300 mb-8">
-              Chúng tôi luôn sẵn sàng hỗ trợ bạn. Hãy liên hệ qua các kênh dưới đây hoặc điền vào form, chúng tôi sẽ phản hồi trong thời gian sớm nhất.
+              Chúng tôi luôn sẵn sàng hỗ trợ bạn. Nhắn Zalo hoặc gọi Hotline để được tư vấn và phản hồi nhanh nhất.
             </p>
             
             <div className="space-y-6">
@@ -93,7 +93,28 @@ export default async function ContactPage() {
           {/* Contact Form */}
           <div className="bg-white dark:bg-slate-800 border border-transparent dark:border-slate-700 rounded-2xl p-8 shadow-sm">
             <h2 className="text-2xl font-bold mb-6 text-slate-800 dark:text-white">Gửi tin nhắn</h2>
+
+            {/* Form chưa nối dịch vụ gửi → khóa lại và hướng khách sang Zalo/Hotline */}
+            <div role="status" className="mb-6 p-4 rounded-2xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900/60">
+              <p className="text-sm font-medium text-orange-800 dark:text-orange-200 mb-3">
+                Tính năng gửi tin nhắn đang được hoàn thiện. Vui lòng liên hệ qua Zalo hoặc Hotline.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {settings.zaloUrl && (
+                  <a href={settings.zaloUrl} target="_blank" rel="noreferrer" className="inline-flex items-center px-4 py-2 rounded-2xl bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold transition-all duration-300 hover:scale-105">
+                    Nhắn Zalo
+                  </a>
+                )}
+                {settings.phone && (
+                  <a href={`tel:${settings.phone.replace(/[^\d+]/g, '')}`} className="inline-flex items-center px-4 py-2 rounded-2xl bg-white dark:bg-slate-700 border border-orange-200 dark:border-slate-600 text-orange-600 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-slate-600 text-sm font-bold transition-all duration-300 hover:scale-105">
+                    Gọi {settings.phone}
+                  </a>
+                )}
+              </div>
+            </div>
+
             <form className="space-y-4">
+              <fieldset disabled aria-disabled="true" className="space-y-4 opacity-50 cursor-not-allowed">
               <div>
                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" htmlFor="name">Họ và tên</label>
                 <input 
@@ -123,10 +144,11 @@ export default async function ContactPage() {
               </div>
               <button 
                 type="button" 
-                className="cursor-pointer w-full bg-orange-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-orange-700 transition-colors"
+                className="cursor-not-allowed w-full bg-orange-600 text-white font-bold py-3 px-4 rounded-lg"
               >
                 Gửi Yêu Cầu
               </button>
+              </fieldset>
             </form>
           </div>
         </div>

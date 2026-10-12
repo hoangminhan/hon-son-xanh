@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "mcp__claude_ai_Claude_Docs__update"
+      "mcp__claude_ai_Claude_Docs__update",
+      "Bash(npx eslint *)"
     ]
   }
 }

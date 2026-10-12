@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { safeFetch } from '../lib/sanity/client';
 import { siteSettingsQuery } from '../lib/sanity/queries';
@@ -5,6 +6,8 @@ import { Phone, MapPin, Mail, MessageCircle } from 'lucide-react';
 
 export default async function Footer() {
   const settings = await safeFetch(siteSettingsQuery) || {};
+  // Bỏ dấu chấm/khoảng trắng để link gọi chạy trên mọi điện thoại
+  const telHref = settings.phone ? `tel:${settings.phone.replace(/[^\d+]/g, '')}` : null;
 
   const navLinks = [
     { href: '/', label: 'Trang chủ' },
@@ -26,16 +29,20 @@ export default async function Footer() {
 
         {/* Main grid */}
         <div className="max-w-[1380px] mx-auto px-4 md:px-8 py-14">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-            {/* ── Col 1: Brand (chiếm 2 cột trên lg) ── */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-2xl">🌿</span>
-                <span className="text-2xl font-black text-white tracking-tight">
-                  Hòn Sơn Xanh
-                </span>
-              </div>
+            {/* ── Col 1: Brand (cả hàng trên md, 2 cột trên lg) ── */}
+            <div className="md:col-span-2">
+              {/* Footer luôn nền tối nên luôn áp bộ lọc làm sáng logo như Header ở dark mode */}
+              <Link href="/" className="inline-block mb-4">
+                <Image
+                  src="/logo.png"
+                  alt="Hòn Sơn Xanh"
+                  width={280}
+                  height={112}
+                  className="h-16 w-auto object-contain brightness-200 contrast-200"
+                />
+              </Link>
                 <p className="text-slate-400 text-sm leading-relaxed mb-7 max-w-sm">
                   Trải nghiệm vẻ đẹp hoang sơ của Hòn Sơn cùng những dịch vụ du lịch tốt nhất. Chúng tôi mang đến hành trình khó quên trên đảo Hòn Sơn, Kiên Giang.
                 </p>
@@ -68,7 +75,7 @@ export default async function Footer() {
                 )}
                 {settings.phone && (
                   <a
-                    href={`tel:${settings.phone}`}
+                    href={telHref}
                     aria-label="Gọi điện"
                     className="w-10 h-10 rounded-xl bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
                   >
@@ -116,7 +123,7 @@ export default async function Footer() {
                 {settings.phone && (
                   <li>
                     <a
-                      href={`tel:${settings.phone}`}
+                      href={telHref}
                       className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                     >
                       <div className="w-8 h-8 rounded-lg bg-white/5 group-hover:bg-orange-500/20 flex items-center justify-center shrink-0 mt-0.5 transition-colors">
@@ -138,7 +145,7 @@ export default async function Footer() {
                       className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                     >
                       <div className="w-8 h-8 rounded-lg bg-white/5 group-hover:bg-[#0068FF]/20 flex items-center justify-center shrink-0 mt-0.5 transition-colors text-[10px] font-black text-[#0068FF]">
-                        ZL
+                        Zalo
                       </div>
                       <div>
                         <p className="text-xs text-slate-500 mb-0.5">Zalo</p>
@@ -199,7 +206,7 @@ export default async function Footer() {
         <div className="border-t border-slate-800">
           <div className="max-w-[1380px] mx-auto px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-slate-500 text-sm">
-              © {new Date().getFullYear()} Hòn Sơn Xanh. All rights reserved.
+              © {new Date().getFullYear()} Hòn Sơn Xanh. Bảo lưu mọi quyền.
             </p>
             <p className="text-slate-600 text-xs flex items-center gap-1.5">
               <span>Đảo Hòn Sơn, Kiên Hải, Kiên Giang</span>

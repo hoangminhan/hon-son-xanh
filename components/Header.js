@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useSyncExternalStore } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -15,14 +15,15 @@ const NAV_LINKS = [
   { href: '/lien-he', label: 'Liên hệ' },
 ];
 
+const subscribeNoop = () => () => {};
+
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  // false khi render phía server, true trên trình duyệt — tránh lệch icon theme khi hydrate
+  const mounted = useSyncExternalStore(subscribeNoop, () => true, () => false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -33,18 +34,17 @@ export default function Header() {
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  const ThemeToggle = () => {
-    if (!mounted) return <div className="w-9 h-9" />;
-    return (
-      <button
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-slate-800 transition-all duration-200"
-        aria-label="Chuyển giao diện sáng/tối"
-      >
-        {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-      </button>
-    );
-  };
+  const themeToggle = !mounted ? (
+    <div className="w-9 h-9" />
+  ) : (
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-slate-800 transition-all duration-200"
+      aria-label="Chuyển giao diện sáng/tối"
+    >
+      {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+    </button>
+  );
 
   return (
     <>
@@ -99,7 +99,7 @@ export default function Header() {
               {/* Divider */}
               <div className="h-5 w-px bg-slate-200 dark:bg-slate-700 mx-2" />
 
-              <ThemeToggle />
+              {themeToggle}
 
               {/* CTA */}
               <Link
@@ -112,7 +112,7 @@ export default function Header() {
 
             {/* Mobile controls */}
             <div className="flex items-center gap-1 md:hidden">
-              <ThemeToggle />
+              {themeToggle}
               <button
                 className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 onClick={() => setIsMobileMenuOpen(true)}

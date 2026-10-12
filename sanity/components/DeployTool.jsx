@@ -83,7 +83,7 @@ export default function DeployTool() {
             />
             
             <Text size={1} muted>
-              Lưu ý: Sau khi có thông báo thành công, hãy chờ khoảng 1-2 phút rồi tải lại trang web chính thức (honsonxanh.com) để thấy thay đổi.
+              Lưu ý: Sau khi có thông báo thành công, hãy chờ khoảng 1-2 phút rồi tải lại trang web chính thức (honsonxanh.vn) để thấy thay đổi.
             </Text>
           </Stack>
         </Card>

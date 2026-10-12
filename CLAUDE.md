@@ -19,11 +19,13 @@ Dự án không có bộ test. Biến môi trường đặt trong `.env.local` (
 Website du lịch tiếng Việt (tour đảo Hòn Sơn + blog), viết bằng JavaScript thuần (không TypeScript), Next.js 16 App Router + React 19, bật React Compiler.
 
 **Xuất bản tĩnh hoàn toàn.** `next.config.mjs` đặt `output: 'export'` và `images.unoptimized: true`. Hệ quả:
+
 - Không có server runtime: không API routes, server actions, middleware, ISR hay dữ liệu theo từng request. Mỗi trang chỉ được render một lần lúc build.
 - Các route động (`app/tour/[slug]`, `app/bai-viet/[slug]`) bắt buộc phải có `generateStaticParams`; khi Sanity không trả về gì thì trả về slug `dummy-fallback` để quá trình export không bị lỗi.
 - Nội dung mới chỉ lên website sau khi build lại. Biên tập viên kích hoạt việc này bằng công cụ "Deploy Website" tự viết trong Studio (`sanity/components/DeployTool.jsx`), công cụ này gửi POST tới Cloudflare deploy hook qua một form/iframe ẩn.
 
 **Luồng nội dung (Sanity → trang).**
+
 - `lib/sanity/client.js` — `safeFetch` nuốt lỗi và trả về `null`, vì vậy nơi gọi luôn dùng fallback `|| []` / `|| {}` và `notFound()` khi không có document.
 - `lib/sanity/queries.js` — toàn bộ truy vấn GROQ nằm ở đây (site settings, bài viết, tour, slug, nội dung liên quan). Thêm truy vấn mới vào đây thay vì viết trực tiếp trong trang.
 - `lib/sanity/image.js` — hàm dựng URL ảnh `urlFor()`.
@@ -33,6 +35,7 @@ Website du lịch tiếng Việt (tour đảo Hòn Sơn + blog), viết bằng J
 **Layout và Studio dùng chung.** `app/layout.js` bọc mọi thứ trong `LayoutWrapper` (client component), dùng `usePathname()` để ẩn Header/Footer/FloatingContacts ở `/studio`. Các phần chạy phía server (`Footer`, `FloatingContacts`) được truyền vào wrapper client này dưới dạng props để vẫn fetch được dữ liệu từ Sanity. Mô hình tách server-fetch → client-con này cũng được dùng ở nơi khác (ví dụ `FloatingContacts` → `FloatingContactsClient`).
 
 **Lưu ý khác.**
+
 - Route dùng slug tiếng Việt: `/tour`, `/bai-viet` (blog), `/gioi-thieu` (giới thiệu), `/lien-he` (liên hệ).
 - Nhãn/màu của danh mục blog được quản lý tập trung trong `lib/categoryConfig.js`.
 - `app/sitemap.js` tạo sitemap từ slug trên Sanity. `scripts/generate-sitemap.js`, `public/sitemap.xml` và `data/*.js` là phần còn sót lại từ thời dùng dữ liệu mẫu (`data/` chỉ được script đó dùng).

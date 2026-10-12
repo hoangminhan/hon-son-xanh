@@ -22,7 +22,6 @@ export default function DestinationsSection({ destinations = [] }) {
     title: d.title,
     slug: d.slug,
     image: d.imageUrl || defaultDestinations[index % defaultDestinations.length].image,
-    toursCount: Math.floor(Math.random() * 15) // Mock count if not available
   })) : defaultDestinations;
 
   const scrollLeft = () => {

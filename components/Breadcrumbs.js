@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
+import { SITE_URL } from '../lib/siteConfig';
 
 /**
  * Breadcrumbs Component
@@ -15,13 +16,13 @@ export default function Breadcrumbs({ items }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Trang chủ",
-        "item": "https://honsonxanh.com/"
+        "item": `${SITE_URL}/`
       },
       ...items.map((item, index) => ({
         "@type": "ListItem",
         "position": index + 2, // Vị trí thứ 2 trở đi (1 là trang chủ)
         "name": item.label,
-        "item": item.href ? `https://honsonxanh.com${item.href}` : undefined
+        "item": item.href ? `${SITE_URL}${item.href}` : undefined
       }))
     ]
   };

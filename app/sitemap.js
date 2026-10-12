@@ -1,10 +1,11 @@
 import { safeFetch } from '../lib/sanity/client';
 import { allPostSlugsQuery, allTourSlugsQuery } from '../lib/sanity/queries';
+import { SITE_URL } from '../lib/siteConfig';
 
 export const dynamic = 'force-static';
 
 export default async function sitemap() {
-  const baseUrl = 'https://honsonxanh.com';
+  const baseUrl = SITE_URL;
 
   // Lấy danh sách slug từ Sanity
   const postSlugs = await safeFetch(allPostSlugsQuery) || [];

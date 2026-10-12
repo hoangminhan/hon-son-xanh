@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { client, safeFetch } from '../../lib/sanity/client';
 import { urlFor } from '../../lib/sanity/image';
-import { allToursQuery } from '../../lib/sanity/queries';
+import { allToursQuery, siteSettingsQuery } from '../../lib/sanity/queries';
 import PaginatedTourList from '../../components/PaginatedTourList';
+import AutoCarousel from '../../components/AutoCarousel';
 import { Compass, Ticket, Clock, MapPin, MessageCircle, CalendarCheck, Send, ThumbsUp, ShieldCheck, Phone } from 'lucide-react';
 
 export const metadata = {
@@ -11,18 +12,27 @@ export const metadata = {
   openGraph: {
     title: 'Danh sách Tour | Hòn Sơn Xanh',
     description: 'Khám phá các tour du lịch hấp dẫn tại Hòn Sơn.',
-    url: 'https://honsonxanh.com/tour',
+    url: '/tour',
   },
 };
 
-export default async function TourPage() {
-  const tours = await safeFetch(allToursQuery) || [];
+// Màu lưu trong Sanity là tên; class phải viết sẵn ở đây để Tailwind sinh CSS
+const COUPON_COLORS = {
+  orange: 'from-orange-500 to-red-500',
+  teal: 'from-teal-500 to-emerald-500',
+  blue: 'from-blue-500 to-indigo-500',
+  purple: 'from-purple-500 to-fuchsia-500',
+  red: 'from-red-500 to-rose-600',
+};
 
-  const coupons = [
-    { id: 1, discount: 'Giảm 10%', desc: 'Áp dụng cho nhóm từ 4 khách trở lên. Liên hệ tư vấn viên để nhận ưu đãi.', color: 'from-orange-500 to-red-500' },
-    { id: 2, discount: 'Giảm 200K', desc: 'Giảm trực tiếp khi đặt Tour 3 Ngày 2 Đêm trọn gói qua Zalo/Hotline.', color: 'from-teal-500 to-emerald-500' },
-    { id: 3, discount: 'Giảm 15%', desc: 'Dành cho khách hàng chốt lịch sớm trước 30 ngày.', color: 'from-blue-500 to-indigo-500' },
-  ];
+export default async function TourPage() {
+  const [tours, settings] = await Promise.all([
+    safeFetch(allToursQuery).then(res => res || []),
+    safeFetch(siteSettingsQuery).then(res => res || {}),
+  ]);
+
+  // Ưu đãi nhập trong Studio (Cấu Hình Chung); bỏ qua mục thiếu nội dung
+  const coupons = (settings.coupons || []).filter(c => c.discount && c.desc);
 
   return (
     <div className="bg-slate-50 dark:bg-slate-900 min-h-screen transition-colors">
@@ -51,6 +61,7 @@ export default async function TourPage() {
       </section>
 
       {/* Coupon Codes Section */}
+      {coupons.length > 0 && (
       <section className="container mx-auto px-4 max-w-7xl relative z-30 -mt-16 md:-mt-20 mb-8 md:mb-12">
         <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl p-5 md:p-8 rounded-[2rem] shadow-xl border border-white/50 dark:border-slate-700/50">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-8 gap-4">
@@ -63,11 +74,11 @@ export default async function TourPage() {
             <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Áp dụng mã giảm giá khi liên hệ đặt tour trực tiếp</p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {coupons.map((coupon, index) => (
-              <div key={coupon.id} className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay={index * 100}>
+          <AutoCarousel controls="sides" slideClassName="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
+            {coupons.map((coupon) => (
+              <div key={coupon._key} className="h-full bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
                 {/* Left stub (Colored) */}
-                <div className={`w-1/3 shrink-0 bg-gradient-to-br ${coupon.color} p-4 flex flex-col items-center justify-center text-white relative`}>
+                <div className={`w-1/3 shrink-0 bg-gradient-to-br ${COUPON_COLORS[coupon.color] || COUPON_COLORS.orange} p-4 flex flex-col items-center justify-center text-white relative`}>
                   <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-slate-50 dark:bg-slate-900/50 rounded-full z-10" />
                   <h3 className="text-xl md:text-2xl font-black text-center leading-tight drop-shadow-sm">{coupon.discount}</h3>
                 </div>
@@ -87,9 +98,10 @@ export default async function TourPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </AutoCarousel>
         </div>
       </section>
+      )}
 
       <div className="container mx-auto px-4 max-w-7xl pb-12 md:pb-16 pt-6">
         

@@ -1,11 +1,13 @@
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
+import { SITE_URL } from '../lib/siteConfig';
 import { ThemeProvider } from '../components/ThemeProvider';
 import { AOSInit } from '../components/AOSInit';
 import FloatingContacts from '../components/FloatingContacts';
 import LayoutWrapper from '../components/LayoutWrapper';
 import Footer from '../components/Footer';
+import DevNotice from '../components/DevNotice';
 
 const mainFont = Plus_Jakarta_Sans({ subsets: ['latin', 'vietnamese'] });
 
@@ -14,7 +16,7 @@ export const metadata = {
     index: false,
     follow: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://honsonxanh.vn'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Hòn Sơn Xanh - Du lịch Hòn Sơn',
     template: '%s | Hòn Sơn Xanh',
@@ -23,7 +25,7 @@ export const metadata = {
   openGraph: {
     title: 'Hòn Sơn Xanh - Du lịch Hòn Sơn',
     description: 'Khám phá vẻ đẹp hoang sơ của Hòn Sơn, Kiên Giang. Đặt tour du lịch Hòn Sơn giá rẻ, chất lượng, trọn gói.',
-    url: 'https://honsonxanh.com',
+    url: '/',
     siteName: 'Hòn Sơn Xanh',
     images: [
       {
@@ -44,7 +46,7 @@ export default function RootLayout({ children }) {
       <body className={`${mainFont.className} min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900 transition-colors duration-300`}>
         <AOSInit />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <LayoutWrapper footer={<Footer />} floatingContacts={<FloatingContacts />}>
+          <LayoutWrapper notice={<DevNotice />} footer={<Footer />} floatingContacts={<FloatingContacts />}>
             {children}
           </LayoutWrapper>
         </ThemeProvider>

@@ -8,7 +8,7 @@ Website cần 4 biến môi trường khi build và 1 khóa ghi chỉ dùng cho 
 | --- | --- | --- | --- |
 | `NEXT_PUBLIC_SANITY_PROJECT_ID` | Mã dự án Sanity: website và Studio kết nối tới kho dữ liệu nào | `lib/sanity/client.js`, `sanity.config.js`, `sanity/env.js`, `scripts/seed.js` | [sanity.io/manage](https://www.sanity.io/manage) → chọn dự án → Project ID |
 | `NEXT_PUBLIC_SANITY_DATASET` | Tên bộ dữ liệu trong dự án, thường là `production` | Như trên | sanity.io/manage → dự án → tab **Datasets** |
-| `NEXT_PUBLIC_SITE_URL` | Địa chỉ chính thức của website (`metadataBase`), làm gốc cho link ảnh khi chia sẻ lên Facebook/Zalo | `app/layout.js` | Tự đặt, ví dụ `https://honsonxanh.com`. Bỏ trống thì dùng `https://honsonxanh.vn` |
+| `NEXT_PUBLIC_SITE_URL` | Địa chỉ chính thức của website (`metadataBase`), làm gốc cho link ảnh khi chia sẻ lên Facebook/Zalo | `lib/siteConfig.js` (dùng cho metadata, sitemap, breadcrumbs) | `https://honsonxanh.vn` — tên miền chính; `honsonxanh.com` redirect về đây. Bỏ trống thì cũng dùng giá trị này |
 | `NEXT_PUBLIC_CLOUDFLARE_DEPLOY_HOOK` | Link mà nút "Cập Nhật Website Ngay" trong Studio gọi tới để Cloudflare build lại website | `sanity/components/DeployTool.jsx` | Cloudflare → Workers & Pages → project → **Settings** → **Builds** → **Deploy hooks** → tạo hook cho nhánh `main` |
 | `SANITY_API_WRITE_TOKEN` | Khóa có quyền ghi vào Sanity, chỉ dùng cho script đổ dữ liệu mẫu | `scripts/seed.js` | sanity.io/manage → dự án → **API** → **Tokens** → Add API token, quyền Editor |
 
