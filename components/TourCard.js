@@ -10,7 +10,8 @@ export default function TourCard({ tour, index, initialCount }) {
     : (index ? index * 100 : 0);
 
   return (
-    <Link href={`/tour/${tour.slug}`} className="group" data-aos="fade-up" data-aos-delay={delay}>
+    // h-full để card giãn bằng slide/ô lưới → các card cùng hàng cao bằng nhau
+    <Link href={`/tour/${tour.slug}`} className="group h-full" data-aos="fade-up" data-aos-delay={delay}>
       <div className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all flex flex-col h-full">
         <div className="h-56 bg-slate-200 dark:bg-slate-700 relative overflow-hidden flex-shrink-0">
           {tour.mainImage ? (
@@ -50,14 +51,18 @@ export default function TourCard({ tour, index, initialCount }) {
             {tour.excerpt || 'Khám phá hành trình tuyệt vời và những trải nghiệm độc đáo cùng Hòn Sơn Xanh.'}
           </p>
           <div className="mt-auto pt-4 flex flex-col justify-between gap-3 border-t border-slate-100 dark:border-slate-700">
-            <div className="min-w-0">
+            <div className="min-w-0 flex flex-col">
+              {/* Luôn giữ chỗ cho dòng giá gốc (ẩn khi không khuyến mãi) để giá và nút thẳng hàng giữa các card */}
               {tour.hasPromotion && tour.promotionPrice ? (
-                <div className="flex flex-col">
+                <>
                   <p className="text-sm font-semibold text-slate-400 dark:text-slate-500 line-through truncate">{tour.priceText}</p>
                   <p className="text-xl font-black text-orange-600 truncate">{tour.promotionPrice}</p>
-                </div>
+                </>
               ) : (
-                <p className="text-xl font-black text-orange-600 truncate">{tour.priceText || 'Liên hệ để biết giá'}</p>
+                <>
+                  <p className="text-sm font-semibold invisible" aria-hidden="true">&nbsp;</p>
+                  <p className="text-xl font-black text-orange-600 truncate">{tour.priceText || 'Liên hệ để biết giá'}</p>
+                </>
               )}
             </div>
             <div className="w-full shrink-0 text-center px-5 py-2.5 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-white group-hover:bg-orange-500 group-hover:text-white font-bold rounded-full transition-colors shadow-sm text-sm">
